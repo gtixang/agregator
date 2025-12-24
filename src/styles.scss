@@ -23,6 +23,13 @@ body {
   color: $base-text-color;
   background-color: $main-bg-color;
 }
+h2 {
+  font-size: 30px;
+  line-height: 38px;
+  text-align: center;
+  margin-bottom: $base-gutter * 10;
+  margin-top: 0;
+}
 
 .container {
   max-width: $container-width;

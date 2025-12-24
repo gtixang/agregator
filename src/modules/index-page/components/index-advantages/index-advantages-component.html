@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Наши преимущества</h2>
   <div class="advantages">
-    @for(advantage of advantages; track advantage.id){
+    @for(advantage of advantagesList ; track advantage.id){
     <div class="advantages__item">
       <div class="advantages__header">
         <img class="advantages__icon" [src]="advantage.iconSrc" [alt]="advantage.title" />

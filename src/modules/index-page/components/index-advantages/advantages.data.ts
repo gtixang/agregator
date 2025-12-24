@@ -1,11 +1,6 @@
-export interface AdvantageItem {
-  id: number;
-  iconSrc: string;
-  title: string;
-  description: string;
-}
+import { Advantage } from '../../interfaces';
 
-export const ADVANTAGES: AdvantageItem[] = [
+export const advantages: Advantage[] = [
   {
     id: 0,
     iconSrc: '/images/content/index-page/advantages/big-choice.svg',

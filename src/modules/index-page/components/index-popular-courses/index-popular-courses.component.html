@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Популярные онлайн-курсы</h2>
+  <div class="popular-courses">
+    <ul class="popular-courses__nav popular-courses-nav">
+      <li class="popular-courses-nav__item">Программирование</li>
+      <li class="popular-courses-nav__item">Маркетинг</li>
+      <li class="popular-courses-nav__item">Дизайн</li>
+      <li class="popular-courses-nav__item">Аналитика</li>
+      <li class="popular-courses-nav__item is-active">Финансы</li>
+      <li class="popular-courses-nav__item">Управление</li>
+      <li class="popular-courses-nav__item">Контент-маркетинг</li>
+      <li class="popular-courses-nav__item">Иностранные языки</li>
+    </ul>
+    <div class="popular-cources__body">
+      @for(course of coursesList; track $index){
+      <app-course-line [course]="course" />
+      }
+    </div>
+  </div>
+</div>

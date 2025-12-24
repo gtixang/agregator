@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ADVANTAGES } from './advantages.data';
+import { advantages } from './advantages.data';
 
 @Component({
   selector: 'app-index-advantages',
@@ -8,5 +8,5 @@ import { ADVANTAGES } from './advantages.data';
   styleUrl: './index-advantages-component.scss',
 })
 export class IndexAdvantagesComponent {
-  public readonly advantages = ADVANTAGES;
+  public readonly advantagesList = advantages;
 }
