@@ -23,13 +23,16 @@
     <div class="header__compare-link compare-link">
       <a class="compare-link__link" href=""></a>
       <div class="compare-link__content">
-        <img class="compare-link__icon" src="icons/compare.svg" alt="compare icon" />
+        <svg class="compare-link__icon">
+          <use [attr.xlink:href]="'icons/sprite.svg#compare'"></use>
+        </svg>
         <span class="compare-link__counter">3</span>
       </div>
     </div>
     <form class="header__search-form search-form">
-      <img class="search-form__icon" src="icons/search.svg" alt="" />
-
+      <svg class="search-form__icon">
+        <use [attr.xlink:href]="'icons/sprite.svg#search'"></use>
+      </svg>
       <input class="search-form__input" placeholder="Искать курсы" />
     </form>
   </div>
