@@ -1,0 +1,129 @@
+@import '../../../../../styles/variables.scss';
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $course-line-border-color;
+  border-radius: $base-gutter;
+  box-shadow: 0 9px 15px rgba(226, 226, 226, 0.25);
+  padding: $base-gutter * 4 $base-gutter * 10;
+
+  &:not(:last-child) {
+    margin-bottom: $base-gutter * 2;
+  }
+
+  & > * {
+    &:not(:last-child) {
+      margin-right: $base-gutter * 2;
+    }
+  }
+}
+.icon {
+  margin-right: $base-gutter * 3;
+  width: 12px;
+  height: 12px;
+}
+.name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: pre-line;
+  flex: 0 0 $base-gutter * 27;
+}
+
+.school {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  flex: 0 0 $base-gutter * 23;
+
+  &__name {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  &__review {
+    font-size: 12px;
+    line-height: 27px;
+    color: $light-text-color;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 600;
+  }
+  &__icon--rating {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 $base-gutter * 24;
+  &__old {
+    font-size: 12px;
+    line-height: 27px;
+    text-decoration: line-through;
+    font-weight: 600;
+    color: $light-text-color;
+  }
+
+  &__current {
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 600;
+
+    span {
+      margin-left: $base-gutter;
+      font-size: 12px;
+    }
+  }
+
+  &__credit {
+    color: $accent-color;
+    font-weight: 600;
+    font-size: 12px;
+
+    span {
+      font-size: 14px;
+    }
+  }
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 600;
+
+  .icon {
+    width: 17px;
+    height: 17px;
+    margin-right: $base-gutter * 3;
+  }
+}
+
+.advantages {
+  &__item {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+}
+.link {
+  app-button {
+    &:not(:last-child) {
+      margin-bottom: var(--course-btn-margin, $base-gutter * 1.6);
+    }
+  }
+}

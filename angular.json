@@ -33,7 +33,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss", "./node_modules/normalize.css/normalize.css"]
+            "styles": ["./node_modules/normalize.css/normalize.css", "src/styles.scss"]
           },
           "configurations": {
             "production": {

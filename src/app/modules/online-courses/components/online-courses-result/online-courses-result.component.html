@@ -1,0 +1,29 @@
+<ul class="course-columns">
+  <li class="course-columns__item course-columns__item--name">
+    <button type="button" class="course-columns__control" aria-label="Сортировать по курсу">
+      Курс
+    </button>
+  </li>
+  <li class="course-columns__item course-columns__item--school">
+    <button type="button" class="course-columns__control">Школа</button>
+  </li>
+  <li class="course-columns__item course-columns__item--price">
+    <button type="button" class="course-columns__control">Цена</button>
+  </li>
+
+  <li class="course-columns__item course-columns__item--duration">
+    <button type="button" class="course-columns__control">Длительность</button>
+  </li>
+  <li class="course-columns__item course-columns__item--advantages">
+    <span class="course-columns__text">Особенности</span>
+  </li>
+  <li class="course-columns__item course-columns__item--link">
+    <span class="course-columns__text">Ссылка на курс</span>
+  </li>
+</ul>
+
+@for(course of courses; track $index){
+<app-course-line [course]="course" style="--course-btn-margin: 4px" class="course-line-padding" />
+}
+
+<app-pagination />

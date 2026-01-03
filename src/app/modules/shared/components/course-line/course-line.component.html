@@ -1,0 +1,51 @@
+<div class="name">
+  <span> {{ course.name }} <br /> </span>
+</div>
+<div class="school">
+  <span class="school__name">{{ course.school.name }}</span>
+  <div class="school__rating">
+    <svg class="school__icon--rating">
+      <use [attr.xlink:href]="'icons/sprite.svg#rating'"></use>
+    </svg>
+    <span>{{ course.school.rating }}</span>
+  </div>
+  <span class="school__review">{{ course.school.review }}</span>
+</div>
+<div class="price">
+  <span class="price__old">{{ course.price.old }}</span>
+  <div class="price__current">{{ course.price.current }}<span>руб</span></div>
+  <div class="price__credit">
+    от
+    <span>{{ course.price.current }}</span>
+    руб./месяц
+  </div>
+</div>
+<div class="duration">
+  <svg class="icon icon-clock">
+    <use [attr.xlink:href]="'icons/sprite.svg#clock'"></use>
+  </svg>
+  <span>В любое<br />время</span>
+</div>
+<div class="advantages">
+  <ul class="advantages__list">
+    @for(advantage of course.advantages;track $index){
+    <li class="advantages__item">
+      <svg class="icon icon-calendar">
+        <use [attr.xlink:href]="'icons/sprite.svg#' + advantage.icon"></use>
+      </svg>
+      {{ advantage.text }}
+    </li>
+
+    }
+  </ul>
+</div>
+<div class="link">
+  <app-button class="is-accent">На сайт курса</app-button>
+  <app-button>Подробнее</app-button>
+  <app-button class="is-light is-no-border is-small">
+    <svg class="icon icon-shuffle">
+      <use xlink:href="icons/sprite.svg#shuffle"></use>
+    </svg>
+    Добавить к сравнению
+  </app-button>
+</div>

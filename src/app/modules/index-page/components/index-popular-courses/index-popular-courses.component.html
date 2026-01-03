@@ -1,0 +1,7 @@
+<div class="container">
+  <h2>Популярные онлайн-курсы</h2>
+  <app-tab-navigation />
+  @for(course of coursesList; track $index){
+  <app-course-line [course]="course" />
+  }
+</div>

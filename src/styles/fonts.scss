@@ -1,35 +1,19 @@
 @font-face {
-  font-family: 'OpenSans';
-  src: url('../assets/fonts/OpenSans-Regular.woff') format('woff'),
-    url('../assets/fonts/OpenSans-Regular.woff2') format('woff'),
-    url('../assets/fonts/OpenSans-Regular.ttf') format('truetype');
+  font-family: 'FSElliotPro';
+  src: url('../assets/fonts/FSElliotProRegular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
-
 @font-face {
-  font-family: 'OpenSans';
-  src: url('../assets/fonts/OpenSans-Bold.woff') format('woff'),
-    url('../assets/fonts/OpenSans-Bold.woff2') format('woff'),
-    url('../assets/fonts/OpenSans-Bold.ttf') format('truetype');
-  font-weight: 800;
+  font-family: 'FSElliotPro';
+  src: url('../assets/fonts/FSElliotProBold.woff2') format('woff2');
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'OpenSans';
-  src: url('../assets/fonts/OpenSans-Light.woff') format('woff'),
-    url('../assets/fonts/OpenSans-Light.woff2') format('woff'),
-    url('../assets/fonts/OpenSans-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'OpenSansSemi';
-  src: url('../assets/fonts/OpenSans-SemiBold.woff') format('woff'),
-    url('../assets/fonts/OpenSans-SemiBold.woff2') format('woff'),
-    url('../assets/fonts/OpenSans-SemiBold.ttf') format('truetype');
-  font-weight: 600;
+  font-family: 'FSElliotPro';
+  src: url('../assets/fonts/FSElliotProHeavy.woff2') format('woff2');
+  font-weight: 900;
   font-style: normal;
 }

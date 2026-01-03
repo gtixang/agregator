@@ -1,0 +1,39 @@
+@import '../../../../../styles/variables.scss';
+
+:host {
+  display: block;
+  margin-bottom: 25px;
+}
+.breadcrumbs {
+  margin-bottom: 10px;
+
+  &__list {
+    display: flex;
+  }
+  &__link {
+    text-decoration: none;
+    color: $base-text-color;
+  }
+  &__item {
+    font-size: 12px;
+    line-height: 30px;
+    color: $light-text-color;
+
+    &:after {
+      content: '–';
+      margin: 0 6px;
+    }
+
+    &:last-child:after {
+      content: '';
+    }
+  }
+}
+
+.page-header {
+  &__left {
+  }
+
+  &__right {
+  }
+}

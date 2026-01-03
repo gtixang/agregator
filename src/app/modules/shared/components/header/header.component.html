@@ -1,0 +1,39 @@
+<div class="container header">
+  <div class="logo header__logo" routerLink="/"><a>Logo</a></div>
+  <nav class="header__header-nav header-nav">
+    <ul class="header-nav__list">
+      <li class="header-nav__item">
+        <a class="header-nav__link" routerLink="/online-courses">Курсы</a>
+      </li>
+      <li class="header-nav__item">
+        <a class="header-nav__link" href="">Школы</a>
+      </li>
+      <li class="header-nav__item">
+        <a class="header-nav__link" href="">Отзывы о школах</a>
+      </li>
+      <li class="header-nav__item">
+        <a class="header-nav__link" href="">Акции школ</a>
+      </li>
+      <li class="header-nav__item">
+        <a class="header-nav__link" href="">Блог</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="header__actions">
+    <div class="header__compare-link compare-link">
+      <a class="compare-link__link" href=""></a>
+      <div class="compare-link__content">
+        <svg class="compare-link__icon">
+          <use [attr.xlink:href]="'icons/sprite.svg#compare'"></use>
+        </svg>
+        <span class="compare-link__counter">3</span>
+      </div>
+    </div>
+    <form class="header__search-form search-form">
+      <svg class="search-form__icon">
+        <use [attr.xlink:href]="'icons/sprite.svg#search'"></use>
+      </svg>
+      <input class="search-form__input" placeholder="Искать курсы" />
+    </form>
+  </div>
+</div>
