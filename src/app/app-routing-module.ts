@@ -5,12 +5,12 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./modules/index-page/index-page.module').then((m) => m.IndexPageModule),
+      import('./pages/index-page/index-page.module').then((m) => m.IndexPageModule),
   },
   {
     path: 'online-courses',
     loadChildren: () =>
-      import('./modules/online-courses/online-courses-module').then((m) => m.OnlineCoursesModule),
+      import('./pages/online-courses/online-courses-module').then((m) => m.OnlineCoursesModule),
   },
 ];
 

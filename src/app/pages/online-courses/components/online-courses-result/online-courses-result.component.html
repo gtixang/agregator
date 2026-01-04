@@ -1,0 +1,7 @@
+<app-course-list-header />
+
+@for(course of courses; track $index){
+<app-course-line [course]="course" style="--course-btn-margin: 4px" class="course-line-padding" />
+}
+
+<app-pagination />

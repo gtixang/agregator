@@ -1,0 +1,39 @@
+@import '../../../../styles/variables.scss';
+
+:host {
+  display: block;
+  border-radius: 50px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $btn-base-border-color;
+  padding: 0 $base-gutter * 6;
+  position: relative;
+  font-weight: 600;
+  font-size: 12px;
+  transition: background-color linear 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $btn-hover-bg-light;
+  }
+  &.is-light {
+    color: $light-text-color;
+    border-color: $btn-light-border-color;
+  }
+
+  &.is-no-border {
+    border: none;
+    line-height: 24px;
+  }
+  &.is-small {
+    font-size: 10px;
+  }
+
+  &.is-accent {
+    color: $white;
+    background-color: $btn-accent-bg-color;
+    border-color: $btn-accent-border-color;
+  }
+}

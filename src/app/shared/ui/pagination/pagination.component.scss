@@ -1,0 +1,33 @@
+@import '../../../../styles/variables.scss';
+
+:host {
+  display: flex;
+  margin-top: 40px;
+  gap: 7px;
+}
+
+.pagination__item {
+  padding: 18px;
+  border: 1px solid $course-line-border-color;
+  border-radius: 5px;
+  background-color: $white;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 8px;
+  letter-spacing: 0%;
+  transition: background-color 0.2s ease;
+
+  &:hover:not(&--active) {
+    background-color: $pagination-hover-bg;
+  }
+
+  &--active {
+    color: $white;
+    background-color: $btn-accent-bg-color;
+    cursor: default;
+  }
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}

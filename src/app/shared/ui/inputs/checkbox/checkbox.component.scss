@@ -1,0 +1,38 @@
+@import '../../../../../styles/variables.scss';
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  line-height: 15px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 400;
+
+  &__box {
+    position: absolute;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    border: 1px solid $btn-dark-border-color;
+    transition: 0.2s;
+  }
+
+  &:hover .checkbox__box {
+    border-color: $btn-accent-bg-color;
+  }
+}
+
+.checkbox input:checked + .checkbox__box {
+  background-color: $btn-accent-bg-color;
+  border-color: $btn-accent-bg-color;
+}
+
+.checkbox input {
+  display: none;
+}
