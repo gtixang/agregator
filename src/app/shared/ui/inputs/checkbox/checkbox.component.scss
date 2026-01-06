@@ -3,14 +3,18 @@
 :host {
   display: flex;
   flex-direction: column;
+  margin-bottom: 12px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 .checkbox {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
   position: relative;
-  line-height: 15px;
-  margin-bottom: 10px;
+  line-height: $base-gutter * 4;
   font-size: 12px;
   font-weight: 400;
 

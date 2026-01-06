@@ -1,0 +1,24 @@
+@import '../../../../../styles/variables.scss';
+
+.range-input {
+  margin-bottom: $base-gutter * 2;
+}
+
+.range-values {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  &__separator {
+    width: 15px;
+    border-bottom: 1px solid #cbcbcb;
+  }
+  &__from,
+  &__to {
+    width: 65px;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    background-color: #f0f0f0;
+  }
+}

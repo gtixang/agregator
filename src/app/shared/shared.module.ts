@@ -1,12 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { ButtonComponent, FooterComponent, HeaderComponent } from './ui';
 import { RouterModule } from '@angular/router';
-import { PageHeaderComponent } from './ui/page-header/page-header.component';
-import { TabNavigationComponent } from './ui/tab-navigation/tab-navigation.component';
-import { PaginationComponent } from './ui/pagination/pagination.component';
-import { CheckboxComponent } from './ui/inputs/checkbox/checkbox.component';
+import {
+  HeaderComponent,
+  FooterComponent,
+  PageHeaderComponent,
+  TabNavigationComponent,
+  BreadcrumbsComponent,
+  PaginationComponent,
+} from '@shared/components';
+
+import { CheckboxComponent, ButtonComponent } from '@shared/ui';
+import { RangeComponent } from './ui/inputs/range/range.component';
+
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -17,6 +25,8 @@ import { CheckboxComponent } from './ui/inputs/checkbox/checkbox.component';
     TabNavigationComponent,
     PaginationComponent,
     CheckboxComponent,
+    BreadcrumbsComponent,
+    RangeComponent,
   ],
   exports: [
     HeaderComponent,
@@ -26,7 +36,9 @@ import { CheckboxComponent } from './ui/inputs/checkbox/checkbox.component';
     TabNavigationComponent,
     PaginationComponent,
     CheckboxComponent,
+    BreadcrumbsComponent,
+    RangeComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MatSliderModule],
 })
 export class SharedModule {}

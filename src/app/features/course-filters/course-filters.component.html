@@ -14,23 +14,27 @@
       <app-checkbox>Платные</app-checkbox>
       <app-checkbox>Бесплатные</app-checkbox>
     </fieldset>
-    <!-- <div class="block">
-      <div class="block__header">
-        <div class="block__title">Школы</div>
-      </div>
-      <div class="block__body"></div>
-    </div>
-    <div class="block">
-      <div class="block__header">
-        <div class="block__title">Уровень сложности</div>
-      </div>
-      <div class="block__body"></div>
-    </div>
-    <div class="block">
-      <div class="block__header">
-        <div class="block__title">Длительность(месяцев)</div>
-      </div>
-      <div class="block__body"></div>
-    </div> -->
+
+    <fieldset class="filter__group">
+      <legend class="visually-hidden">Цена</legend>
+      <app-range />
+    </fieldset>
+
+    <fieldset class="filter__group">
+      <legend class="filter__group-title">Школы</legend>
+      <app-checkbox>Skillbox</app-checkbox>
+      <app-checkbox>Geekbrains</app-checkbox>
+      <app-checkbox>IMBA</app-checkbox>
+      <app-checkbox>LoftSchool</app-checkbox>
+      <app-checkbox>ConvertMonster</app-checkbox>
+    </fieldset>
+
+    <fieldset class="filter__group">
+      <legend class="filter__group-title">Уровень сложности</legend>
+      <app-checkbox>Начальный</app-checkbox>
+      <app-checkbox>Средний</app-checkbox>
+      <app-checkbox>Профессиональный</app-checkbox>
+      <app-checkbox>Для детей</app-checkbox>
+    </fieldset>
   </div>
 </div>
