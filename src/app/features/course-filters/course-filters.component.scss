@@ -5,6 +5,8 @@
     color: #01e45c;
     margin: 0 !important;
     width: 100% !important;
+    --mat-slider-handle-width: 15px;
+    --mat-slider-handle-height: 15px;
     --mat-slider-active-track-height: 3px;
     --mat-slider-inactive-track-height: 3px;
     --mat-slider-active-track-color: #01e45c;
@@ -64,6 +66,7 @@
     padding: 0 32px 0 20px;
   }
   &__group-title {
+    max-width: 165px;
     margin-bottom: $base-gutter * 2;
     font-size: 14px;
     font-weight: 700;

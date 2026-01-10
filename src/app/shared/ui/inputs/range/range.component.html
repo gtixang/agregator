@@ -1,11 +1,25 @@
-<div class="range-input">
-  <mat-slider min="200" max="500">
-    <input value="300" matSliderStartThumb />
-    <input value="400" matSliderEndThumb />
+<div
+  class="range-input"
+  [class.range-input--values-top]="valuesPosition === 'top'"
+  [class.range-input--values-bottom]="valuesPosition === 'bottom'"
+>
+  <mat-slider [min]="min" [max]="max">
+    <input
+      [value]="value.from"
+      [disabled]="disabled"
+      matSliderStartThumb
+      (input)="onFromChange($event.target.valueAsNumber)"
+    />
+    <input
+      [value]="value.to"
+      [disabled]="disabled"
+      matSliderEndThumb
+      (input)="onToChange($event.target.valueAsNumber)"
+    />
   </mat-slider>
   <div class="range-values">
-    <output class="range-values__from">10</output>
+    <output class="range-values__from">{{ value.from }}</output>
     <span class="range-values__separator" aria-hidden="true"></span>
-    <output class="range-values__to">20</output>
+    <output class="range-values__to">{{ value.to }}</output>
   </div>
 </div>

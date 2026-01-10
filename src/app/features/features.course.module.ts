@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { CourseListHeaderComponent } from './course-list-header/course-list-header.component';
 import { SchoolFiltersComponent } from './school-filters/school-filters.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { SchoolFiltersComponent } from './school-filters/school-filters.componen
     CourseListHeaderComponent,
     SchoolFiltersComponent,
   ],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, ReactiveFormsModule],
   exports: [
     CourseLineComponent,
     CourseFiltersComponent,

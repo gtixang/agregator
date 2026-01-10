@@ -1,5 +1,5 @@
 <span class="result">Найдено 6036 курсов</span>
-<div class="filter">
+<form class="filter" [formGroup]="form">
   <div class="filter__header">
     <span class="filter__title">Фильтры</span>
     <button class="filter__reset-btn" aria-label="Сбросить фильтры">
@@ -9,32 +9,46 @@
     </button>
   </div>
   <div class="filter__body">
-    <fieldset class="filter__group">
+    <fieldset class="filter__group" formGroupName="payment">
       <legend class="filter__group-title">Цена</legend>
-      <app-checkbox>Платные</app-checkbox>
-      <app-checkbox>Бесплатные</app-checkbox>
+      <app-checkbox formControlName="paid">Платные</app-checkbox>
+      <app-checkbox formControlName="free">Бесплатные</app-checkbox>
     </fieldset>
 
     <fieldset class="filter__group">
       <legend class="visually-hidden">Цена</legend>
-      <app-range />
+      <app-range formControlName="price" [valuesPosition]="'bottom'" [min]="0" [max]="200000" />
     </fieldset>
 
-    <fieldset class="filter__group">
+    <fieldset class="filter__group" formGroupName="schools">
       <legend class="filter__group-title">Школы</legend>
-      <app-checkbox>Skillbox</app-checkbox>
-      <app-checkbox>Geekbrains</app-checkbox>
-      <app-checkbox>IMBA</app-checkbox>
-      <app-checkbox>LoftSchool</app-checkbox>
-      <app-checkbox>ConvertMonster</app-checkbox>
+      <app-checkbox formControlName="skillbox">Skillbox</app-checkbox>
+      <app-checkbox formControlName="geekbrains"> Geekbrains</app-checkbox>
+      <app-checkbox formControlName="IMBA">IMBA</app-checkbox>
+      <app-checkbox formControlName="loftSchool">LoftSchool</app-checkbox>
+      <app-checkbox formControlName="convertMonster">ConvertMonster</app-checkbox>
+    </fieldset>
+
+    <fieldset class="filter__group" formGroupName="difficultyLevel">
+      <legend class="filter__group-title">Уровень сложности</legend>
+      <app-checkbox formControlName="beginner">Начальный</app-checkbox>
+      <app-checkbox formControlName="intermediate">Средний</app-checkbox>
+      <app-checkbox formControlName="expert">Профессиональный</app-checkbox>
+      <app-checkbox formControlName="children">Для детей</app-checkbox>
     </fieldset>
 
     <fieldset class="filter__group">
-      <legend class="filter__group-title">Уровень сложности</legend>
-      <app-checkbox>Начальный</app-checkbox>
-      <app-checkbox>Средний</app-checkbox>
-      <app-checkbox>Профессиональный</app-checkbox>
-      <app-checkbox>Для детей</app-checkbox>
+      <legend class="filter__group-title">Длительность (месяцев)</legend>
+      <app-range formControlName="durationMonths" [valuesPosition]="'top'" [min]="1" [max]="12" />
+    </fieldset>
+
+    <fieldset class="filter__group" formGroupName="additionalOpportunities">
+      <app-checkbox formControlName="internshipAvailable">
+        <span class="filter__group-title">Возможность стажировки</span>
+      </app-checkbox>
+      <app-checkbox formControlName="certificateAvailable">
+        <span class="filter__group-title">Возможность получить сертификат</span>
+      </app-checkbox>
     </fieldset>
   </div>
-</div>
+</form>
