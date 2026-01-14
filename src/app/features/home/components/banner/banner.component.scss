@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  background-image: url('/images/content/index-page/banner.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  padding: 0;
+}
+
+.banner {
+  padding: $base-gutter * 30 0;
+  max-width: $base-gutter * 104;
+
+  &__title {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: $base-gutter * 5;
+  }
+
+  &__description {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+}

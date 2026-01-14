@@ -1,4 +1,4 @@
-@import '../../../../../styles/variables.scss';
+@use 'variables' as *;
 
 :host {
   display: flex;
@@ -9,22 +9,33 @@
     margin-bottom: 0;
   }
 }
+:host-context(.filter__group--reversed) .checkbox {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.checkbox input {
+  display: none;
+}
+
 .checkbox {
   display: inline-flex;
+  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
   cursor: pointer;
-  position: relative;
   line-height: $base-gutter * 4;
   font-size: 12px;
   font-weight: 400;
 
   &__box {
-    position: absolute;
-    right: 0;
     width: 15px;
     height: 15px;
-    border: 1px solid $btn-dark-border-color;
     transition: 0.2s;
+    border: 1px solid $btn-dark-border-color;
+    position: relative;
   }
 
   &:hover .checkbox__box {
@@ -37,6 +48,16 @@
   border-color: $btn-accent-bg-color;
 }
 
-.checkbox input {
-  display: none;
+.checkbox input:checked + .checkbox__box::after {
+  content: '';
+  width: 4px;
+  height: 7px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-right: 2px solid $white;
+  border-bottom: 2px solid $white;
+
+  transform: translate(-50%, -50%) rotate(45deg);
 }

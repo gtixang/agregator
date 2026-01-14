@@ -1,19 +1,23 @@
-@import '../../../../styles/variables.scss';
+@use 'variables' as *;
 
 :host {
   display: block;
-  border-radius: 50px;
-  line-height: 33px;
+  padding: 0 $base-gutter;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  line-height: 33px;
+
   border: 1px solid $btn-base-border-color;
-  padding: 0 $base-gutter * 6;
-  position: relative;
+  border-radius: 50px;
+
   font-weight: 600;
   font-size: 12px;
   transition: background-color linear 0.3s;
   cursor: pointer;
+
+  position: relative;
 
   &:hover {
     background-color: $btn-hover-bg-light;
@@ -29,6 +33,7 @@
   }
   &.is-small {
     font-size: 10px;
+    color: $text-color-darks;
   }
 
   &.is-accent {

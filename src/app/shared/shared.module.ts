@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-
 import { RouterModule } from '@angular/router';
+import { MatSliderModule } from '@angular/material/slider';
+
 import {
   HeaderComponent,
   FooterComponent,
@@ -11,10 +12,7 @@ import {
   PaginationComponent,
 } from '@shared/components';
 
-import { CheckboxComponent, ButtonComponent } from '@shared/ui';
-import { RangeComponent } from './ui/inputs/range/range.component';
-
-import { MatSliderModule } from '@angular/material/slider';
+import { CheckboxComponent, RangeComponent, ButtonComponent, ChipComponent } from '@shared/ui';
 
 @NgModule({
   declarations: [
@@ -27,7 +25,9 @@ import { MatSliderModule } from '@angular/material/slider';
     CheckboxComponent,
     BreadcrumbsComponent,
     RangeComponent,
+    ChipComponent,
   ],
+  imports: [CommonModule, RouterModule, MatSliderModule],
   exports: [
     HeaderComponent,
     FooterComponent,
@@ -38,7 +38,7 @@ import { MatSliderModule } from '@angular/material/slider';
     CheckboxComponent,
     BreadcrumbsComponent,
     RangeComponent,
+    ChipComponent,
   ],
-  imports: [CommonModule, RouterModule, MatSliderModule],
 })
 export class SharedModule {}

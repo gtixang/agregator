@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export type RangeValuesPosition = 'top' | 'bottom';
@@ -16,6 +16,7 @@ export interface RangeValue {
   providers: [
     { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => RangeComponent), multi: true },
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RangeComponent implements ControlValueAccessor {
   @Input({ required: true }) min!: number;

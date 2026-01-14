@@ -1,0 +1,6 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  background-color: $white;
+}

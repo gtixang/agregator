@@ -1,4 +1,4 @@
-@import '../../../../../styles/variables.scss';
+@use 'variables' as *;
 
 .range-input {
   margin-bottom: $base-gutter * 2;

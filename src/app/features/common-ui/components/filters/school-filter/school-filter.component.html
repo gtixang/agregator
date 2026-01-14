@@ -1,0 +1,19 @@
+<form class="filter" [formGroup]="form">
+  <div class="filter__body">
+    <fieldset class="filter__group filter__group--reversed">
+      <legend class="filter__group-title">Категория курса</legend>
+      <app-checkbox formControlName="programming">Программирование</app-checkbox>
+      <app-checkbox formControlName="marketing">Маркетинг</app-checkbox>
+      <app-checkbox formControlName="design">Дизайн</app-checkbox>
+      <app-checkbox formControlName="analytics">Аналитика</app-checkbox>
+      <app-checkbox formControlName="management">Управление</app-checkbox>
+      <app-checkbox formControlName="contentCreation">Создание контента</app-checkbox>
+      <app-checkbox formControlName="languages">Языки</app-checkbox>
+      <app-checkbox formControlName="softSkills">Soft skills</app-checkbox>
+      <app-checkbox formControlName="finance">Финансы</app-checkbox>
+      <app-checkbox formControlName="businessEducation">Бизнес-образование</app-checkbox>
+      <app-checkbox formControlName="photography">Фотография</app-checkbox>
+      <app-checkbox formControlName="higherEducation">Высшее образование</app-checkbox>
+    </fieldset>
+  </div>
+</form>
