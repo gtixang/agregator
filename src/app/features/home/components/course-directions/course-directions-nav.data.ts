@@ -1,6 +1,6 @@
 import { CourseDirectionsList, CourseDirectionsNav } from '../../interfaces';
 
-export const COURSE_DIRECTIONS_NAV: CourseDirectionsNav[] = [
+export const COURSE_DIRECTIONS_NAV_ITEMS: CourseDirectionsNav[] = [
   {
     text: 'Программирование',
     dataTarget: 'Программирование',
@@ -31,7 +31,7 @@ export const COURSE_DIRECTIONS_NAV: CourseDirectionsNav[] = [
   },
 ];
 
-export const COURSE_DIRECTIONS_CONTENT: CourseDirectionsList[] = [
+export const COURSE_DIRECTIONS_CONTENT_ITEMS: CourseDirectionsList[] = [
   {
     listName: 'Программирование',
     items: [

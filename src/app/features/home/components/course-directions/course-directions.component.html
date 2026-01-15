@@ -2,7 +2,7 @@
   <h2>Направления курсов</h2>
   <div class="body">
     <ul class="nav">
-      @for(item of nav ; track $index){
+      @for(item of directionsNavItems; track $index){
       <li
         #navItem
         class="nav__item"
@@ -14,12 +14,11 @@
       }
     </ul>
     <div class="content">
-      @for(list of content; track $index){
+      @for(list of directionsContentItems; track $index){
       <ul #contentItem class="content__list" [attr.data-list-name]="list.listName">
         @for(item of list.items ; track $index){
         <li class="content__item">
-          {{ item.text }}
-          <a [href]="item.link"></a>
+          <a class="content__link" [href]="item.link">{{ item.text }}</a>
         </li>
         }
       </ul>

@@ -1,14 +1,11 @@
 @use 'variables' as *;
 
 :host {
-  display: block;
-  padding: 0 $base-gutter;
   display: flex;
+  gap: 3px;
   align-items: center;
   justify-content: center;
-
   line-height: 33px;
-
   border: 1px solid $btn-base-border-color;
   border-radius: 50px;
 
@@ -16,8 +13,6 @@
   font-size: 12px;
   transition: background-color linear 0.3s;
   cursor: pointer;
-
-  position: relative;
 
   &:hover {
     background-color: $btn-hover-bg-light;
@@ -30,7 +25,12 @@
   &.is-no-border {
     border: none;
     line-height: 24px;
+
+    &:hover {
+      background-color: transparent;
+    }
   }
+
   &.is-small {
     font-size: 10px;
     color: $text-color-darks;

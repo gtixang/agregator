@@ -5,7 +5,10 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
-import { COURSE_DIRECTIONS_NAV, COURSE_DIRECTIONS_CONTENT } from './course-directions-nav.data';
+import {
+  COURSE_DIRECTIONS_NAV_ITEMS,
+  COURSE_DIRECTIONS_CONTENT_ITEMS,
+} from './course-directions-nav.data';
 import { CourseDirectionsNav, CourseDirectionsList } from '../../interfaces';
 
 @Component({
@@ -19,8 +22,8 @@ export class CourseDirectionsComponent {
   @ViewChildren('navItem') navItems!: QueryList<ElementRef>;
   @ViewChildren('contentItem') contentItems!: QueryList<ElementRef>;
 
-  public readonly nav: CourseDirectionsNav[] = COURSE_DIRECTIONS_NAV;
-  public readonly content: CourseDirectionsList[] = COURSE_DIRECTIONS_CONTENT;
+  public readonly directionsNavItems: CourseDirectionsNav[] = COURSE_DIRECTIONS_NAV_ITEMS;
+  public readonly directionsContentItems: CourseDirectionsList[] = COURSE_DIRECTIONS_CONTENT_ITEMS;
 
   ngAfterViewInit() {
     this.setInitialActiveElements();

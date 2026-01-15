@@ -7,7 +7,7 @@
   border: 1px solid $course-line-border-color;
   border-radius: $base-gutter;
   box-shadow: 0 9px 15px rgba(226, 226, 226, 0.25);
-  padding: var(--course-card-padding, $base-gutter * 4 $base-gutter * 10);
+  padding: var(--course-list-card-padding, 20px 50px);
 
   &:not(:last-child) {
     margin-bottom: $base-gutter * 2;
@@ -16,9 +16,10 @@
 
 app-button {
   &:not(:last-child) {
-    margin-bottom: var(--course-btn-margin, 8px);
+    margin-bottom: var(--course-list-btn-margin, 8px);
   }
 }
+
 .btn-compare::before {
   content: '';
   width: 12px;

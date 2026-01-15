@@ -10,7 +10,6 @@
 
 html,
 body {
-  height: 100%;
   font-family: FSElliotPro, Arial, sans-serif;
   font-size: 14px;
   line-height: 24px;
@@ -26,6 +25,7 @@ li {
 }
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 button {
@@ -35,17 +35,11 @@ button {
   cursor: pointer;
 }
 .container {
-  max-width: $container-width;
   width: 100%;
+  max-width: $container-width;
   margin: 0 auto;
 }
 
-.content {
-  flex: 1;
-}
 .bg-white {
   background-color: $white;
-}
-.section {
-  padding: $base-gutter * 10 0;
 }

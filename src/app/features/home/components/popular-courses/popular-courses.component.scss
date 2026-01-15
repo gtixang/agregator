@@ -1,7 +1,6 @@
-@use 'variables';
+@use 'variables' as *;
 
 :host {
   display: block;
-  display: flex;
-  justify-content: center;
+  padding: $base-gutter * 10 0;
 }

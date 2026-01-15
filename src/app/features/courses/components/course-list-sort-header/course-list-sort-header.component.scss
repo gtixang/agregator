@@ -1,76 +1,56 @@
 @use 'variables' as *;
 
-.list-header {
+:host {
   margin-bottom: $base-gutter * 5;
-  padding-left: 30px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: $course-columns-item-color;
+}
 
-  & > * {
-    &:not(:last-child) {
-      margin-right: $base-gutter * 2;
-    }
-  }
+.sort-controls {
+  width: 100%;
+  margin-left: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  &__text {
-    display: inline-block;
-    font-weight: 700;
-    font-size: 12px;
-    color: $course-columns-item-color;
-  }
+.control {
+  padding: 0;
+  font-weight: inherit;
+  color: inherit;
+  line-height: inherit;
+  position: relative;
+}
 
-  &__control {
-    display: inline-block;
-    font-weight: 700;
-    font-size: 12px;
-    color: $course-columns-item-color;
-  }
+.control::before,
+::after {
+  content: '';
+  position: absolute;
+  right: -15px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
 
-  &__item {
-    &:not(:nth-last-child(-n + 2)) {
-      .course-list-header__control {
-        position: relative;
-        padding-right: 10px;
+.control:before {
+  top: 45%;
+  border-bottom: 3.5px solid $course-columns-item-color;
+  transform: translateY(-90%);
+}
 
-        &::before,
-        &::after {
-          content: '';
-          position: absolute;
-          right: 0;
-          border-left: 3px solid transparent;
-          border-right: 3px solid transparent;
-        }
+.control::after {
+  top: 60%;
+  border-top: 3.5px solid $course-columns-item-color;
+  transform: translateY(0);
+}
 
-        &::before {
-          top: 45%;
-          border-bottom: 3.5px solid $course-columns-item-color;
-          transform: translateY(-90%);
-        }
-
-        &::after {
-          top: 60%;
-          border-top: 3.5px solid $course-columns-item-color;
-          transform: translateY(0);
-        }
-      }
-    }
-  }
-
-  &__item--name {
-    flex: 0 0 $base-gutter * 31;
-  }
-  &__item--school {
-    flex: 0 0 $base-gutter * 27;
-  }
-  &__item--price {
-    flex: 0 0 $base-gutter * 28;
-  }
-  &__item--duration {
-    flex: 0 0 $base-gutter * 21;
-  }
-  &__item--advantages {
-    flex: 0 0 $base-gutter * 24;
-  }
-  &__item--link {
-    flex: 0 0 $base-gutter * 44;
-  }
+.labels {
+  margin: 0 67px 0 67px;
+  display: flex;
+  flex-shrink: 0;
+  gap: 68px;
 }

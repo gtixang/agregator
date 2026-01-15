@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 :host {
-  padding: 28px 40px 22px 37px;
+  padding: 0 41px 0 38px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,6 +44,9 @@
 
   &__details {
     margin-right: 147px;
+    padding: 30px 75px 23px 33px;
+    border-right: var(--details-school-border, none);
+    border-left: var(--details-school-border, none);
   }
 
   &__full-name {
