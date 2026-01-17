@@ -46,3 +46,4 @@ Thumbs.db
 *.env
 .env.*
 environment.ts
+environment.prod.ts
