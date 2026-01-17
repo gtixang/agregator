@@ -28,14 +28,13 @@
 </div>
 <div class="advantages">
   <ul class="advantages__list">
-    @for(advantage of course.advantages;track $index){
-    <li class="advantages__item">
-      <svg class="icon icon-calendar">
-        <use [attr.xlink:href]="'icons/sprite.svg#' + advantage.icon"></use>
-      </svg>
-      {{ advantage.text }}
-    </li>
-
+    @for (advantage of course.advantages; track $index) {
+      <li class="advantages__item">
+        <svg class="icon icon-calendar">
+          <use [attr.xlink:href]="'icons/sprite.svg#' + advantage.icon"></use>
+        </svg>
+        {{ advantage.text }}
+      </li>
     }
   </ul>
 </div>
@@ -43,5 +42,7 @@
 <div class="button-group">
   <app-button class="is-accent">На сайт курса</app-button>
   <app-button>Подробнее</app-button>
-  <app-button class="is-light is-no-border is-small btn-compare">Добавить к сравнению</app-button>
+  <app-button class="is-light is-no-border is-small btn-compare"
+    >Добавить к сравнению</app-button
+  >
 </div>

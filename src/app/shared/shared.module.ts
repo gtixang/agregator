@@ -12,7 +12,12 @@ import {
   PaginationComponent,
 } from '@shared/components';
 
-import { CheckboxComponent, RangeComponent, ButtonComponent, ChipComponent } from '@shared/ui';
+import {
+  CheckboxComponent,
+  RangeComponent,
+  ButtonComponent,
+  ChipComponent,
+} from '@shared/ui';
 
 @NgModule({
   declarations: [

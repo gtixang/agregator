@@ -1,10 +1,10 @@
-<course-list-sort-header />
+<app-course-list-sort-header />
 
-@for(course of courses; track $index){
-<app-course-card
-  [course]="course"
-  style="--course-list-card-padding: 23px 23px 18px 30px; --course-list-btn-margin: 4px"
-/>
+@for (course of courses; track $index) {
+  <app-course-card
+    [course]="course"
+    style="--course-list-card-padding: 23px 23px 18px 30px; --course-list-btn-margin: 4px"
+  />
 }
 
 <app-pagination />

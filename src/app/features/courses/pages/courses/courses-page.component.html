@@ -2,8 +2,8 @@
   <app-breadcrumbs />
   <app-page-header title="Онлайн-курсы">
     <span>
-      Список всех онлайн-курсов с рейтингом, отзывами и детальным описанием курса 2021 года. Для
-      удобства поиска курса используйте фильтры, сортировку, сравнение и поиск.
+      Список всех онлайн-курсов с рейтингом, отзывами и детальным описанием курса 2021
+      года. Для удобства поиска курса используйте фильтры, сортировку, сравнение и поиск.
       <br />
       Мы обновляем информацию о всех курсах каждую неделю.
     </span>
@@ -17,7 +17,7 @@
 </div>
 
 <div class="courses-content">
-  <app-course-filter />
+  <app-listing-filters />
   <div class="related-section">
     <app-course-list />
     <div class="direction-related">
@@ -32,14 +32,20 @@
             <li><a href="#" class="direction-related__link">Java-разработка</a></li>
             <li><a href="#" class="direction-related__link">Разработка игр</a></li>
             <li><a href="#" class="direction-related__link">Создание сайтов</a></li>
-            <li><a href="#" class="direction-related__link">Системное администрирование</a></li>
+            <li>
+              <a href="#" class="direction-related__link">Системное администрирование</a>
+            </li>
             <li><a href="#" class="direction-related__link">QA-тестирование</a></li>
-            <li><a href="#" class="direction-related__link">Управление разработкой и IT</a></li>
+            <li>
+              <a href="#" class="direction-related__link">Управление разработкой и IT</a>
+            </li>
           </ul>
           <ul class="direction-related__list">
             <li><a href="#" class="direction-related__link">Android-разработка</a></li>
             <li><a href="#" class="direction-related__link">Frontend-разработка</a></li>
-            <li><a href="#" class="direction-related__link">Разработка игр на Unity</a></li>
+            <li>
+              <a href="#" class="direction-related__link">Разработка игр на Unity</a>
+            </li>
             <li><a href="#" class="direction-related__link">Разработка на C#</a></li>
             <li><a href="#" class="direction-related__link">PHP-разработка</a></li>
             <li><a href="#" class="direction-related__link">DevOps</a></li>
@@ -51,10 +57,16 @@
         </div>
         <div class="direction-related__columns">
           <ul class="direction-related__list">
-            <li><a href="#" class="direction-related__link">Разработка игр на Unreal Engine</a></li>
+            <li>
+              <a href="#" class="direction-related__link"
+                >Разработка игр на Unreal Engine</a
+              >
+            </li>
             <li><a href="#" class="direction-related__link">Фреймворк Node.js</a></li>
             <li><a href="#" class="direction-related__link">Разработка на Kotlin</a></li>
-            <li><a href="#" class="direction-related__link">Информационная безопасность</a></li>
+            <li>
+              <a href="#" class="direction-related__link">Информационная безопасность</a>
+            </li>
             <li><a href="#" class="direction-related__link">Golang-разработка</a></li>
             <li><a href="#" class="direction-related__link">Разработка на Swift</a></li>
             <li><a href="#" class="direction-related__link">Фреймворк ReactJS</a></li>
@@ -71,8 +83,11 @@
       </div>
       <div class="direction-related__schools">
         <h3>Онлайн-школы преподающие программирование</h3>
-        @for(school of schools; track $index){
-        <app-school-card [school]="school" style="--details-school-border: 1px solid #f0f0f0" />
+        @for (school of schools; track $index) {
+          <app-school-card
+            [school]="school"
+            style="--details-school-border: 1px solid #f0f0f0"
+          />
         }
       </div>
     </div>

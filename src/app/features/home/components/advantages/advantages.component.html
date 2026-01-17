@@ -1,16 +1,20 @@
 <div class="container">
   <h2>Наши преимущества</h2>
   <div class="advantages">
-    @for(advantage of advantagesList ; track advantage.id){
-    <div class="advantages__item">
-      <div class="advantages__header">
-        <img class="advantages__icon" [src]="advantage.iconSrc" [alt]="advantage.title" />
-        <span class="advantages__title">{{ advantage.title }}</span>
+    @for (advantage of advantagesList; track advantage.id) {
+      <div class="advantages__item">
+        <div class="advantages__header">
+          <img
+            class="advantages__icon"
+            [src]="advantage.iconSrc"
+            [alt]="advantage.title"
+          />
+          <span class="advantages__title">{{ advantage.title }}</span>
+        </div>
+        <p class="advantages__description">
+          {{ advantage.description }}
+        </p>
       </div>
-      <p class="advantages__description">
-        {{ advantage.description }}
-      </p>
-    </div>
     }
   </div>
 </div>

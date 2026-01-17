@@ -4,24 +4,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '@shared/shared.module';
 import {
   CourseCardComponent,
-  CourseFilterComponent,
-  SchoolFilterComponent,
+  ListingFiltersComponent,
   SchoolCardComponent,
 } from '@features/common-ui';
 
 @NgModule({
-  declarations: [
-    CourseCardComponent,
-    SchoolCardComponent,
-    CourseFilterComponent,
-    SchoolFilterComponent,
-  ],
+  declarations: [CourseCardComponent, SchoolCardComponent, ListingFiltersComponent],
   imports: [CommonModule, ReactiveFormsModule, SharedModule],
   exports: [
     CourseCardComponent,
     SchoolCardComponent,
-    CourseFilterComponent,
-    SchoolFilterComponent,
+    ListingFiltersComponent,
     SharedModule,
   ],
 })

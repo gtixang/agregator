@@ -1,14 +1,14 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-school-filter',
+  selector: 'app-course-category-filters',
   standalone: false,
-  templateUrl: './school-filter.component.html',
-  styleUrl: './school-filter.component.scss',
+  templateUrl: './course-category-filters.component.html',
+  styleUrl: './course-category-filters.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SchoolFilterComponent {
+export class CourseCategoryFiltersComponent implements OnInit {
   public fb = new FormBuilder();
 
   public readonly form = this.fb.group({

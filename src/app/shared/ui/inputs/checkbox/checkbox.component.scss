@@ -9,7 +9,7 @@
     margin-bottom: 0;
   }
 }
-:host-context(.filter__section--reversed) .checkbox {
+:host-context(.filter--reversed) .checkbox {
   flex-direction: row-reverse;
   justify-content: flex-end;
   gap: 12px;

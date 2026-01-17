@@ -5,12 +5,22 @@ import { Route, RouterModule } from '@angular/router';
 import { CommonUiModule } from '@features/common-ui';
 
 import { SchoolsPageComponent } from './pages';
-import { SchoolListComponent } from './components';
+import { SchoolListComponent, CourseCategoryFiltersComponent } from './components';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Route[] = [{ path: '', component: SchoolsPageComponent }];
 
 @NgModule({
-  declarations: [SchoolListComponent, SchoolsPageComponent],
-  imports: [CommonModule, CommonUiModule, RouterModule.forChild(routes)],
+  declarations: [
+    SchoolListComponent,
+    CourseCategoryFiltersComponent,
+    SchoolsPageComponent,
+  ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    CommonUiModule,
+    RouterModule.forChild(routes),
+  ],
 })
 export class SchoolModule {}

@@ -1,20 +1,20 @@
 <div class="container">
   <h2>Блог</h2>
   <div class="blog-preview">
-    @for(preview of blogPreviewList;track preview.id){
-    <div class="article-prev">
-      <span class="article-prev__tag">{{ preview.tag }}</span>
-      <div class="article-prev__img"></div>
-      <div class="article-prev__body">
-        <span class="article-prev__title">
-          {{ preview.title }}
-        </span>
+    @for (preview of blogPreviewList; track preview.id) {
+      <div class="article-prev">
+        <span class="article-prev__tag">{{ preview.tag }}</span>
+        <div class="article-prev__img"></div>
+        <div class="article-prev__body">
+          <span class="article-prev__title">
+            {{ preview.title }}
+          </span>
+        </div>
+        <div class="article-prev__footer">
+          <span class="article-prev__date">{{ preview.date }}</span>
+          <app-button class="is-light">Подробнее</app-button>
+        </div>
       </div>
-      <div class="article-prev__footer">
-        <span class="article-prev__date">{{ preview.date }}</span>
-        <app-button class="is-light">Подробнее</app-button>
-      </div>
-    </div>
     }
   </div>
 </div>

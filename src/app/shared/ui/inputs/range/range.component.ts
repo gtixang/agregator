@@ -1,3 +1,5 @@
+/* eslint @typescript-eslint/no-empty-function: "off" */
+
 import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -14,7 +16,11 @@ export interface RangeValue {
   templateUrl: './range.component.html',
   styleUrl: './range.component.scss',
   providers: [
-    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => RangeComponent), multi: true },
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => RangeComponent),
+      multi: true,
+    },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -27,11 +33,14 @@ export class RangeComponent implements ControlValueAccessor {
 
   public disabled = false;
 
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   private onChange(value: RangeValue) {}
   private onTouched = () => {};
 
   writeValue(value: RangeValue): void {
-    if (!value) return;
+    if (!value) {
+      return;
+    }
     this.value = value;
   }
 

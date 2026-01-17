@@ -1,14 +1,14 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-course-filter',
+  selector: 'app-listing-filters',
   standalone: false,
-  templateUrl: './course-filter.component.html',
-  styleUrl: './course-filter.component.scss',
+  templateUrl: './listing-filters.component.html',
+  styleUrl: './listing-filters.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CourseFilterComponent {
+export class ListingFiltersComponent implements OnInit {
   public fb = new FormBuilder();
 
   public readonly form = this.fb.group({
@@ -33,7 +33,10 @@ export class CourseFilterComponent {
       expert: [false, Validators.required],
       children: [false, Validators.required],
     }),
-    durationMonths: this.fb.control({ from: 1, to: 12 }, { validators: Validators.required }),
+    durationMonths: this.fb.control(
+      { from: 1, to: 12 },
+      { validators: Validators.required },
+    ),
     additionalOpportunities: this.fb.group({
       internshipAvailable: [false],
       certificateAvailable: [false],
@@ -46,7 +49,7 @@ export class CourseFilterComponent {
         price: { from: 0, to: 157800 },
         durationMonths: { from: 1, to: 9 },
       },
-      { emitEvent: false }
+      { emitEvent: false },
     );
 
     this.form.valueChanges.subscribe((res) => console.log(res));

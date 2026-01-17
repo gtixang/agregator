@@ -10,7 +10,11 @@ import { CourseListComponent, CourseListSortHeaderComponent } from './components
 const routes: Route[] = [{ path: '', component: CoursesPageComponent }];
 
 @NgModule({
-  declarations: [CourseListComponent, CourseListSortHeaderComponent, CoursesPageComponent],
+  declarations: [
+    CourseListComponent,
+    CourseListSortHeaderComponent,
+    CoursesPageComponent,
+  ],
   imports: [CommonModule, CommonUiModule, RouterModule.forChild(routes)],
   exports: [],
 })

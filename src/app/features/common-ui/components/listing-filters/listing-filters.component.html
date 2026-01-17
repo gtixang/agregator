@@ -9,7 +9,7 @@
     </button>
   </div>
   <div class="filter__body">
-    <fieldset class="filter__group filter__group--reversed" formGroupName="payment">
+    <fieldset class="filter__group filter--reversed" formGroupName="payment">
       <legend class="filter__group-title">Цена</legend>
       <app-checkbox formControlName="paid">Платные</app-checkbox>
       <app-checkbox formControlName="free">Бесплатные</app-checkbox>
@@ -17,7 +17,12 @@
 
     <fieldset class="filter__group">
       <legend class="visually-hidden">Цена</legend>
-      <app-range formControlName="price" [valuesPosition]="'bottom'" [min]="0" [max]="200000" />
+      <app-range
+        formControlName="price"
+        [valuesPosition]="'bottom'"
+        [min]="0"
+        [max]="200000"
+      />
     </fieldset>
 
     <fieldset class="filter__group" formGroupName="schools">
@@ -39,7 +44,12 @@
 
     <fieldset class="filter__group">
       <legend class="filter__group-title">Длительность (месяцев)</legend>
-      <app-range formControlName="durationMonths" [valuesPosition]="'top'" [min]="1" [max]="12" />
+      <app-range
+        formControlName="durationMonths"
+        [valuesPosition]="'top'"
+        [min]="1"
+        [max]="12"
+      />
     </fieldset>
 
     <fieldset class="filter__group" formGroupName="additionalOpportunities">

@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+import { ChangeDetectionStrategy, Component, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -7,7 +9,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   templateUrl: './checkbox.component.html',
   styleUrl: './checkbox.component.scss',
   providers: [
-    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => CheckboxComponent), multi: true },
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => CheckboxComponent),
+      multi: true,
+    },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -15,6 +21,7 @@ export class CheckboxComponent implements ControlValueAccessor {
   checked = false;
   disabled = false;
 
+  /* eslint @typescript-eslint/no-empty-function: "off" */
   private onChange(value: boolean) {}
   private onTouched = () => {};
 
@@ -33,7 +40,9 @@ export class CheckboxComponent implements ControlValueAccessor {
     this.disabled = isDisabled;
   }
   toggle(): void {
-    if (this.disabled) return;
+    if (this.disabled) {
+      return;
+    }
 
     this.checked = !this.checked;
     this.onChange(this.checked);

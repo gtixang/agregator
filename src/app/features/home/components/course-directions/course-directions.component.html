@@ -2,26 +2,27 @@
   <h2>Направления курсов</h2>
   <div class="body">
     <ul class="nav">
-      @for(item of directionsNavItems; track $index){
-      <li
-        #navItem
-        class="nav__item"
-        [attr.data-list-target]="item.dataTarget"
-        (mouseover)="onNavHover($event)"
-      >
-        <span class="nav__title">{{ item.text }}</span>
-      </li>
+      @for (item of directionsNavItems; track $index) {
+        <li
+          #navItem
+          class="nav__item"
+          [attr.data-list-target]="item.dataTarget"
+          (mouseover)="onNavHover($event)"
+          (focus)="onNavHover($event)"
+        >
+          <span class="nav__title">{{ item.text }}</span>
+        </li>
       }
     </ul>
     <div class="content">
-      @for(list of directionsContentItems; track $index){
-      <ul #contentItem class="content__list" [attr.data-list-name]="list.listName">
-        @for(item of list.items ; track $index){
-        <li class="content__item">
-          <a class="content__link" [href]="item.link">{{ item.text }}</a>
-        </li>
-        }
-      </ul>
+      @for (list of directionsContentItems; track $index) {
+        <ul #contentItem class="content__list" [attr.data-list-name]="list.listName">
+          @for (item of list.items; track $index) {
+            <li class="content__item">
+              <a class="content__link" [href]="item.link">{{ item.text }}</a>
+            </li>
+          }
+        </ul>
       }
     </div>
   </div>
