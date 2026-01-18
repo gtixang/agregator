@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { SupabaseService } from '@shared/services/supabase.service';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
@@ -8,10 +7,4 @@ import { SupabaseService } from '@shared/services/supabase.service';
   styleUrl: './home-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomePageComponent {
-  public readonly subabase = inject(SupabaseService);
-
-  ngOnInit() {
-    this.subabase.getSchools();
-  }
-}
+export class HomePageComponent {}

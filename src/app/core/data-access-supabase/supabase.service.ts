@@ -13,14 +13,7 @@ export class SupabaseService {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
   }
 
-  async getSchools() {
-    const { data, error } = await this.supabase.from('schools').select(`
-    id,
-    name,
-    reviews (
-      id,
-      text
-    )
-  `);
+  public getSupabase(): SupabaseClient {
+    return this.supabase;
   }
 }
