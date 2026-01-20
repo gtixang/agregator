@@ -25,10 +25,11 @@ export class HomeService {
         if (error) {
           throw error;
         }
-        let urls = data?.map(({ logo_url }) => this.getSchoolLogoUrl(logo_url));
+        let logoUrls = data?.map(({ logo_url }) => this.getSchoolLogoUrl(logo_url));
+
         return {
-          data: urls,
-          status: !!urls?.length ? AsyncStatus.READY : AsyncStatus.EMPTY,
+          data: logoUrls,
+          status: !!logoUrls?.length ? AsyncStatus.READY : AsyncStatus.EMPTY,
         };
       }),
       catchError((err) => {

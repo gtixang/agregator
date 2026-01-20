@@ -1,4 +1,4 @@
 export interface SchoolSliderItem {
   name: string;
-  img_url: string;
+  logo_url: string;
 }
