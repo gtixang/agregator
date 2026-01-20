@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-
-import { courses } from './courses.data';
+import { POPULAR_COURSES_ITEMS } from '@features/home/constants';
 
 @Component({
   selector: 'app-popular-courses',
@@ -10,5 +9,5 @@ import { courses } from './courses.data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PopularCoursesComponent {
-  public coursesList: any[] = courses;
+  public coursesList: any[] = POPULAR_COURSES_ITEMS;
 }

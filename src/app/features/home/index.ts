@@ -1,3 +1,3 @@
 export * from './home-page';
-export * from './interfaces';
+export * from './models';
 export * from './home.module';

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { advantages } from './advantages.data';
+import { ADVANTAGES_ITEMS } from '@features/home/constants';
 
 @Component({
   selector: 'app-advantages',
@@ -9,5 +9,5 @@ import { advantages } from './advantages.data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdvantagesComponent {
-  public readonly advantagesList = advantages;
+  public readonly advantagesList = ADVANTAGES_ITEMS;
 }

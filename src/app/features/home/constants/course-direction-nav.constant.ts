@@ -1,4 +1,4 @@
-import { CourseDirectionsList, CourseDirectionsNav } from '../../interfaces';
+import { CourseDirectionsList, CourseDirectionsNav } from '../models';
 
 export const COURSE_DIRECTIONS_NAV_ITEMS: CourseDirectionsNav[] = [
   {

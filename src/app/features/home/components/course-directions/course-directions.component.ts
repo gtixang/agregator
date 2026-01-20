@@ -6,11 +6,12 @@ import {
   ViewChildren,
   AfterViewInit,
 } from '@angular/core';
+
+import { CourseDirectionsNav, CourseDirectionsList } from '../../models';
 import {
-  COURSE_DIRECTIONS_NAV_ITEMS,
   COURSE_DIRECTIONS_CONTENT_ITEMS,
-} from './course-directions-nav.data';
-import { CourseDirectionsNav, CourseDirectionsList } from '../../interfaces';
+  COURSE_DIRECTIONS_NAV_ITEMS,
+} from '@features/home/constants';
 
 @Component({
   selector: 'app-course-directions',

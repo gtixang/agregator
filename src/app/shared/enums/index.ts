@@ -1,1 +1,1 @@
-export { State } from './state.enum';
+export { AsyncStatus } from './async-status.enum';

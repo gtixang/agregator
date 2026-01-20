@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { blogPreviewItems } from './blog-preview.data';
+import { BLOG_PREVIEW_ITEMS } from '@features/home/constants';
 
 @Component({
   selector: 'app-blog-preview',
@@ -9,5 +9,5 @@ import { blogPreviewItems } from './blog-preview.data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogPreviewComponent {
-  public readonly blogPreviewList = blogPreviewItems;
+  public readonly blogPreviewList = BLOG_PREVIEW_ITEMS;
 }

@@ -1,6 +1,6 @@
-import { Advantage } from '../../interfaces';
+import { Advantage } from '../models';
 
-export const advantages: Advantage[] = [
+export const ADVANTAGES_ITEMS: Advantage[] = [
   {
     id: 0,
     iconSrc: '/images/content/index-page/advantages/big-choice.svg',

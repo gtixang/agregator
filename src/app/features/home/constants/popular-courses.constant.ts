@@ -1,4 +1,4 @@
-export const courses: any[] = [
+export const POPULAR_COURSES_ITEMS: any[] = [
   {
     name: 'Профессия\nвеб-разработчик',
     school: { name: 'Skillbox', rating: '4.5', review: 'Отзывы о школе 58' },

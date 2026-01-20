@@ -1,6 +1,6 @@
-import { BlogPreview } from '../../interfaces/blog-preview.interface';
+import { BlogPreview } from '../models';
 
-export const blogPreviewItems: BlogPreview[] = [
+export const BLOG_PREVIEW_ITEMS: BlogPreview[] = [
   {
     id: 0,
     tag: 'Онлайн курсы по маркетингу',
