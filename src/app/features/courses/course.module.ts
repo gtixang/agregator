@@ -3,14 +3,15 @@ import { CommonModule } from '@angular/common';
 import { Route, RouterModule } from '@angular/router';
 
 import { CoursesPageComponent } from './pages';
-import { CourseListComponent, CourseListSortHeaderComponent } from './components';
+import { CourseListSortHeaderComponent, CourseCategoriesComponent } from './components';
 import { CommonUiModule } from '@features/common-ui';
+
 const routes: Route[] = [{ path: '', component: CoursesPageComponent }];
 
 @NgModule({
   declarations: [
-    CourseListComponent,
     CourseListSortHeaderComponent,
+    CourseCategoriesComponent,
     CoursesPageComponent,
   ],
   imports: [CommonModule, CommonUiModule, RouterModule.forChild(routes)],

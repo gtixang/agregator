@@ -18,78 +18,30 @@
 
 <div class="courses-content">
   <app-listing-filters />
-  <div class="related-section">
-    <app-course-list />
-    <div class="direction-related">
-      <h3>Другие категории курсов по направлению программирование</h3>
-      <div class="direction-related__categories">
-        <div class="direction-related__columns">
-          <ul class="direction-related__list">
-            <li><a href="#" class="direction-related__link">Python-разработка</a></li>
-            <li><a href="#" class="direction-related__link">Web-разработка</a></li>
-            <li><a href="#" class="direction-related__link">Мобильная разработка</a></li>
-            <li><a href="#" class="direction-related__link">JavaScript-разработка</a></li>
-            <li><a href="#" class="direction-related__link">Java-разработка</a></li>
-            <li><a href="#" class="direction-related__link">Разработка игр</a></li>
-            <li><a href="#" class="direction-related__link">Создание сайтов</a></li>
-            <li>
-              <a href="#" class="direction-related__link">Системное администрирование</a>
-            </li>
-            <li><a href="#" class="direction-related__link">QA-тестирование</a></li>
-            <li>
-              <a href="#" class="direction-related__link">Управление разработкой и IT</a>
-            </li>
-          </ul>
-          <ul class="direction-related__list">
-            <li><a href="#" class="direction-related__link">Android-разработка</a></li>
-            <li><a href="#" class="direction-related__link">Frontend-разработка</a></li>
-            <li>
-              <a href="#" class="direction-related__link">Разработка игр на Unity</a>
-            </li>
-            <li><a href="#" class="direction-related__link">Разработка на C#</a></li>
-            <li><a href="#" class="direction-related__link">PHP-разработка</a></li>
-            <li><a href="#" class="direction-related__link">DevOps</a></li>
-            <li><a href="#" class="direction-related__link">Верстка на HTML/CSS</a></li>
-            <li><a href="#" class="direction-related__link">IOS-разработка</a></li>
-            <li><a href="#" class="direction-related__link">Разработка на C++</a></li>
-            <li><a href="#" class="direction-related__link">Фреймворк Django</a></li>
-          </ul>
-        </div>
-        <div class="direction-related__columns">
-          <ul class="direction-related__list">
-            <li>
-              <a href="#" class="direction-related__link"
-                >Разработка игр на Unreal Engine</a
-              >
-            </li>
-            <li><a href="#" class="direction-related__link">Фреймворк Node.js</a></li>
-            <li><a href="#" class="direction-related__link">Разработка на Kotlin</a></li>
-            <li>
-              <a href="#" class="direction-related__link">Информационная безопасность</a>
-            </li>
-            <li><a href="#" class="direction-related__link">Golang-разработка</a></li>
-            <li><a href="#" class="direction-related__link">Разработка на Swift</a></li>
-            <li><a href="#" class="direction-related__link">Фреймворк ReactJS</a></li>
-            <li><a href="#" class="direction-related__link">Фреймворк Spring</a></li>
-            <li><a href="#" class="direction-related__link">VR/AR разработка</a></li>
-            <li><a href="#" class="direction-related__link">1C-разработка</a></li>
-          </ul>
-          <ul class="direction-related__list">
-            <li><a href="#" class="direction-related__link">Фреймворк Laravel</a></li>
-            <li><a href="#" class="direction-related__link">Фреймворк Flutter</a></li>
-            <li><a href="#" class="direction-related__link">Работа с GIT</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="direction-related__schools">
-        <h3>Онлайн-школы преподающие программирование</h3>
-        @for (school of schools; track $index) {
-          <app-school-card
-            [school]="school"
-            style="--details-school-border: 1px solid #f0f0f0"
-          />
-        }
-      </div>
+
+  <div class="main">
+    <app-course-list-sort-header />
+
+    <app-course-list
+      [courses]="courses"
+      [cardPadding]="'23px 23px 18px 30px'"
+      [showLoadMore]="false"
+    />
+
+    <div class="course-categories">
+      <app-course-categories
+        [title]="'Другие категории курсов по направлению программирование'"
+      />
+    </div>
+
+    <div class="schools">
+      <h3>Онлайн-школы преподающие программирование</h3>
+      @for (school of schools; track school.id) {
+        <app-school-card
+          [school]="school"
+          style="--details-school-border: 1px solid #f0f0f0"
+        />
+      }
     </div>
   </div>
 </div>

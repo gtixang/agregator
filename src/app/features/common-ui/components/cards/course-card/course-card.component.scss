@@ -1,13 +1,13 @@
 @use 'variables' as *;
 
 :host {
+  padding: var(--card-padding, 20px 50px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   border: 1px solid $course-line-border-color;
   border-radius: $base-gutter;
   box-shadow: 0 9px 15px rgba(226, 226, 226, 0.25);
-  padding: var(--course-list-card-padding, 20px 50px);
 
   &:not(:last-child) {
     margin-bottom: $base-gutter * 2;

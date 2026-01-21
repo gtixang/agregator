@@ -1,7 +1,9 @@
 <div class="container">
   <h2>Популярные онлайн-курсы</h2>
   <app-tab-navigation />
-  @for (course of coursesList; track $index) {
-    <app-course-card [course]="course" />
-  }
+  <app-course-list
+    [courses]="coursesList"
+    [showLoadMore]="true"
+    [cardPadding]="'20px 50px'"
+  />
 </div>

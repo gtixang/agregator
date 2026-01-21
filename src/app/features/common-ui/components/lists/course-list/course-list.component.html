@@ -1,0 +1,9 @@
+@for (course of courses; track $index) {
+  <app-course-card [course]="course" [style.--card-padding]="cardPadding" />
+}
+
+@if (!showLoadMore) {
+  <app-pagination />
+} @else {
+  <button>Показать еще</button>
+}
