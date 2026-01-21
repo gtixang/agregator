@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { SCHOOL_LIST_ITEMS } from '@shared/constants';
 
 @Component({
   selector: 'app-schools-page',
@@ -7,4 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './schools-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SchoolsPageComponent {}
+export class SchoolsPageComponent {
+  public schools: any[] = SCHOOL_LIST_ITEMS;
+}

@@ -13,20 +13,6 @@
   border-bottom: 1px solid $base-border-color;
 }
 
-.courses-content {
-  max-width: 1226px;
-  margin: 0 auto 100px;
-  padding-top: $base-gutter * 10;
-  display: grid;
-  grid-template-columns: 246px 960px;
-  gap: 20px;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-}
-
 .course-categories {
   margin-top: 70px;
 }

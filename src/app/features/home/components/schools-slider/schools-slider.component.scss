@@ -18,5 +18,6 @@
     margin: 0 $base-gutter * 1.5;
     height: $base-gutter * 45;
     flex: 0 0 calc(25% - 7.5px);
+    cursor: pointer;
   }
 }

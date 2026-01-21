@@ -6,11 +6,3 @@
   padding: $base-gutter * 5 0;
   background-color: $white;
 }
-.body {
-  display: grid;
-  grid-template-columns: 246px 960px;
-  gap: 20px;
-  padding-top: $base-gutter * 10;
-  max-width: 1226px;
-  margin: 0 auto;
-}

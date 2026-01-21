@@ -15,6 +15,7 @@ body {
   line-height: 24px;
   color: $base-text-color;
   background-color: $main-bg-color;
+  scroll-behavior: smooth;
 }
 
 ul,
@@ -47,4 +48,17 @@ img {
 
 .bg-white {
   background-color: $white;
+}
+
+.page-content {
+  max-width: 1226px;
+  margin: 0 auto 100px;
+  padding-top: $base-gutter * 10;
+  display: grid;
+  grid-template-columns: 246px 960px;
+  gap: 20px;
+}
+.main {
+  display: flex;
+  flex-direction: column;
 }

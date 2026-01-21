@@ -10,8 +10,11 @@
     </span>
   </app-page-header>
 
-  <div class="body">
+  <div class="page-content">
     <app-listing-filters />
-    <app-school-list />
+    <div class="main">
+      Все курсы Skillbox
+      <app-course-list [courses]="courses" [showLoadMore]="false" [cardPadding]="''" />
+    </div>
   </div>
 </div>

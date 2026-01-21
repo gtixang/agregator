@@ -13,9 +13,9 @@
           <p>Данные отстутствуют ...</p>
         }
         @case ('READY') {
-          @for (imgUrl of schoolsState.data; track imgUrl) {
-            <div class="schools-slider__item">
-              <img [src]="imgUrl" alt="" />
+          @for (school of schoolsState.data; track school.id) {
+            <div class="schools-slider__item" [routerLink]="['/schools', school.id]">
+              <img [src]="school.logo_url" alt="" />
             </div>
           }
         }

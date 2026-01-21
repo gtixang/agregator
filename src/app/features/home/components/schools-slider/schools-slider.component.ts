@@ -7,7 +7,7 @@ import { HomeService } from '@features/home/data-access/home.service';
 export interface School {
   id: number;
   name: string;
-  img_url: string;
+  logo_url: string;
 }
 
 @Component({
@@ -19,7 +19,7 @@ export interface School {
 })
 export class SchoolsSliderComponent {
   private readonly homeService = inject(HomeService);
-  public schools$!: Observable<AsyncState<string[]>>;
+  public schools$!: Observable<AsyncState<School[]>>;
   public reload$ = new BehaviorSubject(null);
 
   ngOnInit() {
