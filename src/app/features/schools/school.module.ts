@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { CourseCategoryFiltersComponent } from './components';
 import { SchoolsPageComponent, SchoolDetailComponent } from './pages';
-import { CommonUiModule } from '@features/common-ui';
+import { SharedModule } from '@shared/shared.module';
 
 const routes: Route[] = [
   { path: '', component: SchoolsPageComponent },
@@ -20,8 +20,8 @@ const routes: Route[] = [
   ],
   imports: [
     CommonModule,
-    CommonUiModule,
     ReactiveFormsModule,
+    SharedModule,
     RouterModule.forChild(routes),
   ],
 })

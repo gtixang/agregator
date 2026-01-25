@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { RouterModule } from '@angular/router';
 import { MatSliderModule } from '@angular/material/slider';
 
@@ -10,14 +12,14 @@ import {
   TabNavigationComponent,
   BreadcrumbsComponent,
   PaginationComponent,
+  SchoolListComponent,
+  CourseListComponent,
+  SchoolCardComponent,
+  CourseCardComponent,
+  ListingFiltersComponent,
 } from '@shared/components';
 
-import {
-  CheckboxComponent,
-  RangeComponent,
-  ButtonComponent,
-  ChipComponent,
-} from '@shared/ui';
+import { CheckboxComponent, RangeComponent, ButtonComponent } from '@shared/ui';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,19 @@ import {
     CheckboxComponent,
     BreadcrumbsComponent,
     RangeComponent,
-    ChipComponent,
+    SchoolListComponent,
+    CourseListComponent,
+    SchoolCardComponent,
+    CourseCardComponent,
+    ListingFiltersComponent,
   ],
-  imports: [CommonModule, RouterModule, MatSliderModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatSliderModule,
+    ReactiveFormsModule,
+    RouterModule,
+  ],
   exports: [
     HeaderComponent,
     FooterComponent,
@@ -43,7 +55,11 @@ import {
     CheckboxComponent,
     BreadcrumbsComponent,
     RangeComponent,
-    ChipComponent,
+    SchoolListComponent,
+    CourseListComponent,
+    SchoolCardComponent,
+    CourseCardComponent,
+    ListingFiltersComponent,
   ],
 })
 export class SharedModule {}

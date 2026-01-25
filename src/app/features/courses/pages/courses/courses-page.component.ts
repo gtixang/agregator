@@ -1,6 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { POPULAR_COURSES_ITEMS } from '@shared/constants';
-import { SCHOOL_LIST_ITEMS } from '@shared/constants';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-courses-page',
@@ -10,6 +8,9 @@ import { SCHOOL_LIST_ITEMS } from '@shared/constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CoursesPageComponent {
-  public courses: any[] = POPULAR_COURSES_ITEMS;
-  public schools: any[] = SCHOOL_LIST_ITEMS;
+  // public schools: any[] = SCHOOL_LIST_ITEMS;
+
+  ngOnInit() {
+    console.log('init');
+  }
 }

@@ -1,0 +1,24 @@
+@if (courses$ | async; as coursesData) {
+  @switch (coursesData.status) {
+    @case ('PENDING') {
+      <p>Загрузка данных ...</p>
+    }
+    @case ('ERROR') {
+      <p>Произошла ошибка ...</p>
+    }
+    @case ('EMPTY') {
+      <p>Данные отстутствуют ...</p>
+    }
+    @case ('READY') {
+      @for (course of coursesData.data; track $index) {
+        <app-course-card [course]="course" [style.--card-padding]="cardPadding" />
+      }
+    }
+  }
+}
+
+@if (!showLoadMore) {
+  <app-pagination />
+} @else {
+  <button>Показать еще</button>
+}

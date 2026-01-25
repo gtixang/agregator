@@ -1,8 +1,8 @@
 <div class="container">
   <h2>Школы</h2>
   <div class="schools-slider">
-    @if (schools$ | async; as schoolsState) {
-      @switch (schoolsState.status) {
+    @if (schools$ | async; as schoolsData) {
+      @switch (schoolsData.status) {
         @case ('PENDING') {
           <p>Загрузка данных ...</p>
         }
@@ -13,9 +13,9 @@
           <p>Данные отстутствуют ...</p>
         }
         @case ('READY') {
-          @for (school of schoolsState.data; track school.id) {
-            <div class="schools-slider__item" [routerLink]="['/schools', school.id]">
-              <img [src]="school.logo_url" alt="" />
+          @for (school of schoolsData.data; track school.id) {
+            <div class="schools-slider__item" [routerLink]="['/schools', school.name]">
+              <img [src]="school.full_logo_url" alt="" />
             </div>
           }
         }

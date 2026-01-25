@@ -1,0 +1,86 @@
+<div class="course-name">
+  <span>{{ course.name }}</span>
+</div>
+<div class="school">
+  <span class="school__name">{{ course.school.name }}</span>
+  <div class="school__rating">
+    <svg class="school__icon--rating">
+      <use [attr.xlink:href]="'icons/sprite.svg#rating'"></use>
+    </svg>
+    <span>{{ course.school.rating_avg }}</span>
+  </div>
+  <span class="school__review">
+    @if (course.school.reviews_count[0].count) {
+      <span>Отзывы о школе</span>
+      {{ course.school.reviews_count[0].count }}
+    } @else {
+      <span>Отзывы отсутствуют</span>
+    }
+  </span>
+</div>
+<div class="price">
+  @for (price of course.prices; track price) {
+    <span class="price__old">{{ price.old }}</span>
+    <div class="price__current">{{ price.current }}<span>руб</span></div>
+    <div class="price__credit">
+      от
+      <span>{{ price.credit }}</span>
+      руб./месяц
+    </div>
+  }
+</div>
+<div class="duration">
+  <svg class="icon icon-clock">
+    <use [attr.xlink:href]="'icons/sprite.svg#clock'"></use>
+  </svg>
+  <span>В любое<br />время</span>
+</div>
+
+<div class="advantages">
+  <span class="advantages__item">
+    <svg class="icon icon-calendar">
+      <use xlink:href="icons/calendar.svg"></use>
+    </svg>
+    {{ course.duration }} месяца
+  </span>
+
+  <span class="advantages__item">
+    @switch (course.levels.code) {
+      @case ('junior') {
+        <svg class="icon">
+          <use xlink:href="icons/jun-level.svg"></use>
+        </svg>
+      }
+      @case ('middle') {
+        <svg class="icon">
+          <use xlink:href="icons/middle-level.svg"></use>
+        </svg>
+      }
+      @case ('senior') {
+        <svg class="icon">
+          <use xlink:href="icons/senior-level.svg"></use>
+        </svg>
+      }
+    }
+    {{ course.levels.name }}
+  </span>
+
+  <ul class="advantages__list">
+    @for (feature of course.features; track $index) {
+      <li class="advantages__item">
+        <svg class="icon icon-calendar">
+          <use [attr.xlink:href]="'icons/sprite.svg#' + feature.icon"></use>
+        </svg>
+        {{ feature.title }}
+      </li>
+    }
+  </ul>
+</div>
+
+<div class="button-group">
+  <app-button class="is-accent">На сайт курса</app-button>
+  <app-button [routerLink]="['/courses', course.course_slug]">Подробнее</app-button>
+  <app-button class="is-light is-no-border is-small btn-compare">
+    Добавить к сравнению
+  </app-button>
+</div>

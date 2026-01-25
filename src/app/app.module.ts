@@ -10,7 +10,6 @@ import { SharedModule } from '@shared/shared.module';
 import { HomeModule } from '@features/home';
 import { CourseModule } from '@features/courses';
 import { SchoolModule } from '@features/schools';
-import { CommonUiModule } from '@features/common-ui';
 
 @NgModule({
   declarations: [App],
@@ -21,7 +20,6 @@ import { CommonUiModule } from '@features/common-ui';
     HomeModule,
     CourseModule,
     SchoolModule,
-    CommonUiModule,
   ],
   providers: [provideBrowserGlobalErrorListeners(), provideZonelessChangeDetection()],
   bootstrap: [App],

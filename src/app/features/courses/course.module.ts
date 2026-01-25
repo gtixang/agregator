@@ -4,7 +4,7 @@ import { Route, RouterModule } from '@angular/router';
 
 import { CoursesPageComponent } from './pages';
 import { CourseListSortHeaderComponent, CourseCategoriesComponent } from './components';
-import { CommonUiModule } from '@features/common-ui';
+import { SharedModule } from '@shared/shared.module';
 
 const routes: Route[] = [{ path: '', component: CoursesPageComponent }];
 
@@ -14,7 +14,7 @@ const routes: Route[] = [{ path: '', component: CoursesPageComponent }];
     CourseCategoriesComponent,
     CoursesPageComponent,
   ],
-  imports: [CommonModule, CommonUiModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
   exports: [],
 })
 export class CourseModule {}

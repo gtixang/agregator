@@ -9,9 +9,9 @@ import {
   PopularCoursesComponent,
   SchoolsSliderComponent,
 } from './components';
-import { CommonUiModule } from '@features/common-ui';
 
 import { HomePageComponent } from './home-page';
+import { SharedModule } from '@shared/shared.module';
 
 const routes: Route[] = [{ path: '', component: HomePageComponent }];
 
@@ -25,6 +25,6 @@ const routes: Route[] = [{ path: '', component: HomePageComponent }];
     BlogPreviewComponent,
     HomePageComponent,
   ],
-  imports: [CommonModule, CommonUiModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
 })
 export class HomeModule {}
