@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { AsyncData } from '@shared/models/async-data';
-import { HomeService, SchoolPreview } from '@data-access/home';
+
+import { SchoolService } from '@data-access/schools';
+import { SchoolPreview } from '@data-access/schools/types';
 
 @Component({
   selector: 'app-schools-slider',
@@ -11,13 +13,13 @@ import { HomeService, SchoolPreview } from '@data-access/home';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SchoolsSliderComponent {
-  private readonly homeService = inject(HomeService);
+  private readonly schoolService = inject(SchoolService);
   public schools$!: Observable<AsyncData<SchoolPreview[]>>;
   public reload$ = new BehaviorSubject(null);
 
   ngOnInit() {
     this.schools$ = this.reload$.pipe(
-      switchMap(() => this.homeService.getSchoolsPreview$()),
+      switchMap(() => this.schoolService.getSchoolsPreview$()),
     );
   }
 }

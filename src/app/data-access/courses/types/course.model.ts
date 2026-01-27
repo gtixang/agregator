@@ -1,14 +1,4 @@
-import { CourseDTO } from './course.dto';
-
-interface Feature {
-  icon: string;
-  title: string;
-}
-
-interface Direction {
-  slug: string;
-  title: string;
-}
+import { CourseDTO, Direction, Feature } from './course.dto';
 
 export type Course = Omit<
   CourseDTO,

@@ -11,7 +11,8 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseListComponent {
-  @Input() courses$!: Observable<AsyncData<Course[]>>;
+  @Input({ required: true }) courses$!: Observable<AsyncData<Course[]>>;
+
   @Input({ required: true }) showLoadMore = false;
   @Input({ required: true }) cardPadding = '20px 50px';
 }

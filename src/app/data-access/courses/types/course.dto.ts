@@ -41,6 +41,7 @@ export interface School {
   name: string;
   rating_avg: number;
   reviews_count: ReviewsCount[];
+  description: string;
 }
 
 export interface CourseDTO {

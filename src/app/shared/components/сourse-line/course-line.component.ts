@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Course } from '@data-access/courses/types';
 
 @Component({
-  selector: 'app-course-card',
+  selector: 'app-course-line',
   standalone: false,
-  templateUrl: './course-card.component.html',
-  styleUrl: './course-card.component.scss',
+  templateUrl: './course-line.component.html',
+  styleUrl: './course-line.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CourseCardComponent {
+export class CourseLineComponent {
   @Input() course!: Course;
 }

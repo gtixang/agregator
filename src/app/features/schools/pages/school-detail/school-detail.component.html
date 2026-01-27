@@ -1,20 +1,42 @@
 <div class="container">
   <app-breadcrumbs />
 
-  <app-page-header title="Skillbox">
-    <span>
-      Список онлайн-школ, преподающих Онлайн-курсы с рейтингом, отзывами и детальным
-      описанием курса 2021 года.
-      <br />
-      Подробные описания, цены, удобное сравнение характеристик курса.
-    </span>
-  </app-page-header>
+  @if (school$ | async; as school) {
+    @switch (school.status) {
+      @case ('PENDING') {
+        <p>Загрузка данных ...</p>
+      }
+      @case ('ERROR') {
+        <p>Произошла ошибка ...</p>
+      }
+      @case ('READY') {
+        <app-page-header>
+          <app-page-header-content
+            class="page-header-content"
+            app-page-header-content
+            [name]="school.data.name"
+            [description]="school.data.description"
+          />
+          <app-page-header-actions
+            app-page-header-actions
+            [ratingAvg]="school.data.rating_avg"
+            [reviewCount]="school.data.reviews_count[0].count"
+          />
+        </app-page-header>
 
-  <div class="page-content">
-    <app-listing-filters />
-    <div class="main">
-      Все курсы Skillbox
-      <app-course-list [showLoadMore]="false" [cardPadding]="''" />
-    </div>
-  </div>
+        <div class="page-content">
+          <app-filter-controls [displayTitle]="false" />
+          <div class="main">
+            <span class="main__title">Все курсы {{ school.data.name }}</span>
+            <app-course-list
+              [title]="school.data.name"
+              [courses$]="courses$"
+              [showLoadMore]="false"
+              [cardPadding]="''"
+            />
+          </div>
+        </div>
+      }
+    }
+  }
 </div>

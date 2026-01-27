@@ -1,12 +1,12 @@
 <div class="container">
   <app-breadcrumbs />
-  <app-page-header title="Онлайн-курсы">
-    <span>
-      Список всех онлайн-курсов с рейтингом, отзывами и детальным описанием курса 2021
-      года. Для удобства поиска курса используйте фильтры, сортировку, сравнение и поиск.
-      <br />
-      Мы обновляем информацию о всех курсах каждую неделю.
-    </span>
+
+  <app-page-header>
+    <app-page-header-content
+      app-page-header-content
+      [name]="'Онлайн-курсы'"
+      [description]="'Список всех онлайн-курсов с рейтингом, отзывами и детальным описанием курса 2021 года. Для удобства поиска курса используйте фильтры, сортировку, сравнение и поиск. Мы обновляем информацию о всех курсах каждую неделю.'"
+    />
   </app-page-header>
 </div>
 
@@ -17,12 +17,16 @@
 </div>
 
 <div class="page-content">
-  <app-listing-filters />
+  <app-filter-controls [displayTitle]="true" />
 
   <div class="main">
     <app-course-list-sort-header />
 
-    <app-course-list [cardPadding]="'23px 23px 18px 30px'" [showLoadMore]="false" />
+    <app-course-list
+      [courses$]="courses$"
+      [cardPadding]="'23px 23px 18px 30px'"
+      [showLoadMore]="false"
+    />
 
     <div class="course-categories">
       <app-course-categories
@@ -32,12 +36,28 @@
 
     <div class="schools">
       <h3>Онлайн-школы преподающие программирование</h3>
-      <!-- @for (school of schools; track school.id) {
-        <app-school-card
-          [school]="school"
-          style="--details-school-border: 1px solid #f0f0f0"
-        />
-      } -->
+
+      @if (schools$ | async; as schoolsData) {
+        @switch (schoolsData.status) {
+          @case ('PENDING') {
+            <p>Загрузка данных ...</p>
+          }
+          @case ('ERROR') {
+            <p>Произошла ошибка ...</p>
+          }
+          @case ('EMPTY') {
+            <p>Данные отстутствуют ...</p>
+          }
+          @case ('READY') {
+            @for (school of schoolsData.data; track school.id) {
+              <app-school-line
+                [school]="school"
+                style="--details-school-border: 1px solid #f0f0f0"
+              />
+            }
+          }
+        }
+      }
     </div>
   </div>
 </div>

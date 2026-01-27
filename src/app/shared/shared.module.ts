@@ -14,9 +14,11 @@ import {
   PaginationComponent,
   SchoolListComponent,
   CourseListComponent,
-  SchoolCardComponent,
-  CourseCardComponent,
-  ListingFiltersComponent,
+  SchoolLineComponent,
+  CourseLineComponent,
+  FilterControlsComponent,
+  PageHeaderContentComponent,
+  PageHeaderActionsComponent,
 } from '@shared/components';
 
 import { CheckboxComponent, RangeComponent, ButtonComponent } from '@shared/ui';
@@ -34,9 +36,11 @@ import { CheckboxComponent, RangeComponent, ButtonComponent } from '@shared/ui';
     RangeComponent,
     SchoolListComponent,
     CourseListComponent,
-    SchoolCardComponent,
-    CourseCardComponent,
-    ListingFiltersComponent,
+    SchoolLineComponent,
+    CourseLineComponent,
+    FilterControlsComponent,
+    PageHeaderContentComponent,
+    PageHeaderActionsComponent,
   ],
   imports: [
     CommonModule,
@@ -57,9 +61,11 @@ import { CheckboxComponent, RangeComponent, ButtonComponent } from '@shared/ui';
     RangeComponent,
     SchoolListComponent,
     CourseListComponent,
-    SchoolCardComponent,
-    CourseCardComponent,
-    ListingFiltersComponent,
+    SchoolLineComponent,
+    CourseLineComponent,
+    FilterControlsComponent,
+    PageHeaderContentComponent,
+    PageHeaderActionsComponent,
   ],
 })
 export class SharedModule {}

@@ -1,44 +1,23 @@
 import { inject, Injectable } from '@angular/core';
 
-import { PostgrestSingleResponse } from '@supabase/supabase-js';
+import { PostgrestResponse, PostgrestSingleResponse } from '@supabase/supabase-js';
 
-import {
-  catchError,
-  defer,
-  from,
-  map,
-  Observable,
-  of,
-  shareReplay,
-  startWith,
-} from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { SupabaseService } from '@data-access/supabase';
-import { AsyncStatus } from '@shared/enums';
 
-import { Course, CourseDTO } from '../types';
-
-import { COURSES_TABLE, COURSES_SELECT } from '../constants';
 import { AsyncData } from '@shared/models';
+import { toAsyncData$ } from '@data-access/utils/async-data.utils';
+import { Course, CourseDTO } from '../types';
+import { COURSES_TABLE, COURSES_SELECT } from '../constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CourseService {
-  private readonly supabaseService = inject(SupabaseService);
+  private readonly supabase = inject(SupabaseService);
 
-  public async fetchCourses(): Promise<CourseDTO[]> {
-    const { data, error }: PostgrestSingleResponse<CourseDTO[]> =
-      await this.supabaseService.getSupabase().from(COURSES_TABLE).select(COURSES_SELECT);
-
-    if (error) {
-      throw new Error(`Error fetching courses: ${error.message}`);
-    }
-
-    return data || [];
-  }
-
-  public toClientModel(course: CourseDTO): Course {
+  public mapCourseDto(course: CourseDTO): Course {
     return {
       name: course.name,
       availability: course.availability,
@@ -53,22 +32,38 @@ export class CourseService {
     };
   }
 
-  public getCourses$(): Observable<AsyncData<Course[]>> {
-    return defer(() => {
-      return from(this.fetchCourses()).pipe(
-        map((data: CourseDTO[]) => {
-          return {
-            data: data.map(this.toClientModel),
-            status: data?.length ? AsyncStatus.READY : AsyncStatus.EMPTY,
-          };
-        }),
-        catchError((err) => {
-          console.error(err);
-          return of({ status: AsyncStatus.ERROR });
-        }),
-        startWith({ status: AsyncStatus.PENDING }),
-        shareReplay({ bufferSize: 1, refCount: true }),
-      );
-    });
+  public async fetchCourses(): Promise<Course[]> {
+    const { data, error }: PostgrestSingleResponse<CourseDTO[]> = await this.supabase
+      .getSupabase()
+      .from(COURSES_TABLE)
+      .select(COURSES_SELECT);
+
+    if (error) {
+      throw new Error(`Error fetching courses: ${error.message}`);
+    }
+
+    return data.map((course) => this.mapCourseDto(course));
+  }
+
+  public async fetchSchoolCourses(schoolId: string): Promise<Course[]> {
+    const { data, error } = (await this.supabase
+      .getSupabase()
+      .from(COURSES_TABLE)
+      .select(COURSES_SELECT)
+      .eq('school_id', schoolId)) as PostgrestResponse<CourseDTO>;
+
+    if (error) {
+      throw new Error(`Error fetching courses: ${error.message}`);
+    }
+
+    return data.map((course) => this.mapCourseDto(course));
+  }
+
+  public getSchoolCourses$(schoolId: string): Observable<AsyncData<Course[]>> {
+    return toAsyncData$(() => this.fetchSchoolCourses(schoolId));
+  }
+
+  public getCoursesList$(): Observable<AsyncData<Course[]>> {
+    return toAsyncData$(() => this.fetchCourses());
   }
 }

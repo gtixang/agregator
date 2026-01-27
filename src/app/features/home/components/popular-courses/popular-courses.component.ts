@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { CourseService } from '@data-access/courses';
-import { Course } from '@data-access/courses/types';
+
+import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
 
 import { AsyncData } from '@shared/models';
-import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
+import { CourseService } from '@data-access/courses';
+import { Course } from '@data-access/courses/types';
 
 @Component({
   selector: 'app-popular-courses',
@@ -18,8 +19,8 @@ export class PopularCoursesComponent {
   public reload$ = new BehaviorSubject(null);
 
   ngOnInit() {
-    this.courses$ = this.reload$.pipe(switchMap(() => this.courseSrvice.getCourses$()));
-
-    this.courses$.pipe(tap((res) => console.log(res))).subscribe();
+    this.courses$ = this.reload$.pipe(
+      switchMap(() => this.courseSrvice.getCoursesList$()),
+    );
   }
 }

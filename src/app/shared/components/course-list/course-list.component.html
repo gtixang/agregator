@@ -10,8 +10,8 @@
       <p>Данные отстутствуют ...</p>
     }
     @case ('READY') {
-      @for (course of coursesData.data; track $index) {
-        <app-course-card [course]="course" [style.--card-padding]="cardPadding" />
+      @for (course of coursesData.data; track course.name) {
+        <app-course-line [course]="course" [style.--card-padding]="cardPadding" />
       }
     }
   }

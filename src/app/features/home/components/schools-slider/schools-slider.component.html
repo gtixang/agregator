@@ -14,7 +14,7 @@
         }
         @case ('READY') {
           @for (school of schoolsData.data; track school.id) {
-            <div class="schools-slider__item" [routerLink]="['/schools', school.name]">
+            <div class="schools-slider__item" [routerLink]="['/schools', school.id]">
               <img [src]="school.full_logo_url" alt="" />
             </div>
           }

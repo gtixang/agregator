@@ -1,1 +1,18 @@
 @use 'variables' as *;
+
+:host {
+  display: block;
+  background-color: $white;
+}
+
+.page-header-content {
+  max-width: 500px;
+}
+.main {
+  &__title {
+    display: inline-block;
+    margin: 0 0 30px 30px;
+    font-weight: 700;
+    font-size: 18px;
+  }
+}

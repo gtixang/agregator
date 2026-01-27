@@ -1,14 +1,16 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-listing-filters',
+  selector: 'app-filter-controls',
   standalone: false,
-  templateUrl: './listing-filters.component.html',
-  styleUrl: './listing-filters.component.scss',
+  templateUrl: './filter-controls.component.html',
+  styleUrl: './filter-controls.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListingFiltersComponent implements OnInit {
+export class FilterControlsComponent {
+  @Input({ required: true }) displayTitle!: boolean;
+
   public fb = new FormBuilder();
 
   public readonly form = this.fb.group({

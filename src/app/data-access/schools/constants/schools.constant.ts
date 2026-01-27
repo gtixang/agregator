@@ -1,21 +1,23 @@
-export const SCHOOL_TABLE = 'schools';
+export const SCHOOLS_TABLE = 'schools';
 
-export const SCHOOL_SLIDER_FIELDS = `id, name, full_logo_url`;
+export const SCHOOL_SLIDER_FIELDS = `id, full_logo_url`;
 
 export const SCHOOL_BASE_FIELDS = `
   id,
   name,
+  description,
   rating_avg,
   reviews_count:reviews(count)
 `;
 
 export const SCHOOL_EXTRA_FIELDS = `
-  courses_count,
-  topics_count,
-  badges(title, slug)  -- например направления
+  transliteration,
+  school_has_categories(categories(title, slug)),
+  categories_count:school_has_categories(count),
+  courses_count:courses(count)
 `;
 
-// export const SCHOOLS_SELECT = `
-//   ${SCHOOL_BASE_FIELDS},
-//   ${SCHOOL_EXTRA_FIELDS}
-// `;
+export const SCHOOLS_SELECT = `
+  ${SCHOOL_BASE_FIELDS},
+  ${SCHOOL_EXTRA_FIELDS}
+`;
