@@ -1,7 +1,7 @@
 export interface SchoolBaseDTO {
   id: string;
   name: string;
-  description: string | null;
+  description: string;
   rating_avg: number;
   reviews_count: { count: number }[];
 }

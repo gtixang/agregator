@@ -8,6 +8,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PageHeaderContentComponent {
-  @Input() name!: string;
-  @Input() description!: string;
+  @Input({ required: true }) name!: string;
+  @Input({ required: true }) description!: string;
 }
