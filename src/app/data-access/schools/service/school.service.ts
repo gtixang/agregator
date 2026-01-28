@@ -40,7 +40,7 @@ export class SchoolService {
       .select(SCHOOLS_SELECT);
 
     if (error) {
-      throw new Error(`Error fetching courses: ${error.message}`);
+      throw new Error(`Error fetching schools: ${error.message}`);
     }
 
     return data.map((school) => this.mapSchoolDto(school));
@@ -52,7 +52,7 @@ export class SchoolService {
       .from(SCHOOLS_TABLE)
       .select(SCHOOL_SLIDER_FIELDS);
     if (error) {
-      throw new Error(`Error fetching courses: ${error.message}`);
+      throw new Error(`Error fetching schools preview: ${error.message}`);
     }
     return data || [];
   }

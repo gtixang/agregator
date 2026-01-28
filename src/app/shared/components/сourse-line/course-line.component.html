@@ -7,12 +7,12 @@
     <svg class="school__icon--rating">
       <use [attr.xlink:href]="'icons/sprite.svg#rating'"></use>
     </svg>
-    <span>{{ course.school.rating_avg }}</span>
+    <span>{{ course.school.ratingAvg }}</span>
   </div>
   <span class="school__review">
-    @if (course.school.reviews_count[0].count) {
+    @if (course.school.reviewsCount) {
       <span>Отзывы о школе</span>
-      {{ course.school.reviews_count[0].count }}
+      {{ course.school.reviewsCount }}
     } @else {
       <span>Отзывы отсутствуют</span>
     }

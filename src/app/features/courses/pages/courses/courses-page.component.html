@@ -18,46 +18,21 @@
 
 <div class="page-content">
   <app-filter-controls [displayTitle]="true" />
-
   <div class="main">
     <app-course-list-sort-header />
-
     <app-course-list
       [courses$]="courses$"
       [cardPadding]="'23px 23px 18px 30px'"
       [showLoadMore]="false"
     />
-
     <div class="course-categories">
       <app-course-categories
         [title]="'Другие категории курсов по направлению программирование'"
       />
     </div>
-
     <div class="schools">
       <h3>Онлайн-школы преподающие программирование</h3>
-
-      @if (schools$ | async; as schoolsData) {
-        @switch (schoolsData.status) {
-          @case ('PENDING') {
-            <p>Загрузка данных ...</p>
-          }
-          @case ('ERROR') {
-            <p>Произошла ошибка ...</p>
-          }
-          @case ('EMPTY') {
-            <p>Данные отстутствуют ...</p>
-          }
-          @case ('READY') {
-            @for (school of schoolsData.data; track school.id) {
-              <app-school-line
-                [school]="school"
-                style="--details-school-border: 1px solid #f0f0f0"
-              />
-            }
-          }
-        }
-      }
+      <app-school-list [schools$]="schools$" [schoolBorder]="'1px solid #f0f0f0'" />
     </div>
   </div>
 </div>

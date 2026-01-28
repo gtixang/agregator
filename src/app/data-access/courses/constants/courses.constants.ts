@@ -10,7 +10,11 @@ export const COURSES_SELECT = `
   direction_slug,
   levels(name, code),
   prices(old, current, credit),
-  course_has_features(features(title, icon)),
-  course_has_directions(directions(title, slug)),
+  course_has_features(
+   features(title, icon)
+  ),
+  course_has_directions(
+   directions(title, slug)
+  ),
   school:schools(${SCHOOL_BASE_FIELDS})
 `;

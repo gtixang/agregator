@@ -1,3 +1,5 @@
+import { School } from '@data-access/schools/types';
+
 export interface Feature {
   icon: string;
   title: string;
@@ -34,14 +36,6 @@ export interface Review {
 
 export interface ReviewsCount {
   count: number;
-}
-
-export interface School {
-  id: string;
-  name: string;
-  rating_avg: number;
-  reviews_count: ReviewsCount[];
-  description: string;
 }
 
 export interface CourseDTO {
