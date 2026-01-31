@@ -1,25 +1,26 @@
-<div class="container">
-  <h2>Школы</h2>
-  <div class="schools-slider">
-    @if (schools$ | async; as schoolsData) {
-      @switch (schoolsData.status) {
-        @case ('PENDING') {
-          <p>Загрузка данных ...</p>
-        }
-        @case ('ERROR') {
-          <p>Произошла ошибка ...</p>
-        }
-        @case ('EMPTY') {
-          <p>Данные отстутствуют ...</p>
-        }
-        @case ('READY') {
-          @for (school of schoolsData.data; track school.id) {
-            <div class="schools-slider__item" [routerLink]="['/schools', school.id]">
-              <img [src]="school.full_logo_url" alt="" />
-            </div>
-          }
-        }
+<h2>Школы</h2>
+<div class="slider">
+  <div class="slider__content">
+    <div class="slider__track" #track [style.transform]="transform">
+      @for (school of schools; track school.id) {
+        <div class="slider__slide" [routerLink]="['./schools', school.id]">
+          <img [src]="school.full_logo_url" [alt]="school.name" />
+        </div>
       }
-    }
+    </div>
   </div>
+  <button
+    class="slider__nav-btn slider__nav-btn--prev"
+    aria-label="Previous slide"
+    (click)="prevSlide()"
+  >
+    ←
+  </button>
+  <button
+    class="slider__nav-btn slider__nav-btn--next"
+    aria-label="Next slide"
+    (click)="nextSlide()"
+  >
+    →
+  </button>
 </div>

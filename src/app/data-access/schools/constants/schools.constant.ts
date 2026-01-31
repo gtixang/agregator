@@ -1,6 +1,6 @@
 export const SCHOOLS_TABLE = 'schools';
 
-export const SCHOOL_SLIDER_FIELDS = `id, full_logo_url`;
+export const SCHOOL_SLIDER_FIELDS = `id, name, full_logo_url`;
 
 export const SCHOOL_BASE_FIELDS = `
   id,

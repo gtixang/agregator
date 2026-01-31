@@ -3,4 +3,5 @@ export { BLOG_PREVIEW_ITEMS } from './blog-preview.constant';
 export {
   COURSE_DIRECTIONS_NAV_ITEMS,
   COURSE_DIRECTIONS_CONTENT_ITEMS,
-} from './course-direction-nav.constant';
+} from './course-direction-nav.constants';
+export { SLIDE_FULL_WIDTH } from './slider.constants';

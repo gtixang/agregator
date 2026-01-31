@@ -1,9 +1,15 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { BehaviorSubject, Observable, switchMap } from 'rxjs';
-import { AsyncData } from '@shared/models/async-data';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  inject,
+  Input,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 
-import { SchoolService } from '@data-access/schools';
 import { SchoolPreview } from '@data-access/schools/types';
+import { SLIDE_FULL_WIDTH } from '@features/home/constants';
 
 @Component({
   selector: 'app-schools-slider',
@@ -13,13 +19,25 @@ import { SchoolPreview } from '@data-access/schools/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SchoolsSliderComponent {
-  private readonly schoolService = inject(SchoolService);
-  public schools$!: Observable<AsyncData<SchoolPreview[]>>;
-  public reload$ = new BehaviorSubject(null);
+  @Input({ required: true }) schools!: SchoolPreview[];
 
-  ngOnInit() {
-    this.schools$ = this.reload$.pipe(
-      switchMap(() => this.schoolService.getSchoolsPreview$()),
-    );
+  public readonly renderer = inject(Renderer2);
+
+  @Input() visibleSlides = 4;
+
+  public currentIndex = 0;
+
+  get transform(): string {
+    return `translateX(-${this.currentIndex * SLIDE_FULL_WIDTH}px)`;
+  }
+
+  prevSlide() {
+    this.currentIndex = Math.max(0, this.currentIndex - 1);
+  }
+
+  nextSlide() {
+    const maxIndex = Math.max(0, this.schools.length - this.visibleSlides);
+
+    this.currentIndex = Math.min(maxIndex, this.currentIndex + 1);
   }
 }

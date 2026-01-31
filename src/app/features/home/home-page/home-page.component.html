@@ -1,6 +1,23 @@
 <app-banner />
 <app-advantages class="bg-white" />
 <app-course-directions />
-<app-schools-slider class="bg-white" />
+
+@if (schools$ | async; as schoolsData) {
+  @switch (schoolsData.status) {
+    @case ('PENDING') {
+      <p>Загрузка данных ...</p>
+    }
+    @case ('ERROR') {
+      <p>Произошла ошибка ...</p>
+    }
+    @case ('EMPTY') {
+      <p>Данные отстутствуют ...</p>
+    }
+    @case ('READY') {
+      <app-schools-slider [schools]="schoolsData.data" class="bg-white" />
+    }
+  }
+}
+
 <app-popular-courses class="bg-white" />
 <app-blog-preview class="bg-white" />

@@ -39,13 +39,13 @@
   }
 
   &:hover .checkbox__box {
-    border-color: $btn-accent-bg-color;
+    border-color: $accent-color-light;
   }
 }
 
 .checkbox input:checked + .checkbox__box {
-  background-color: $btn-accent-bg-color;
-  border-color: $btn-accent-bg-color;
+  background-color: $accent-color-light;
+  border-color: $accent-color-light;
 }
 
 .checkbox input:checked + .checkbox__box::after {

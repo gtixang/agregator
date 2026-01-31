@@ -20,7 +20,7 @@
 </div>
 <div class="price">
   @for (price of course.prices; track $index) {
-    <span class="price__old">{{ price.old }}</span>
+    <span class="price__old">{{ price.old }} <span>руб</span></span>
     <div class="price__current">{{ price.current }}<span>руб</span></div>
     <div class="price__credit">
       от
