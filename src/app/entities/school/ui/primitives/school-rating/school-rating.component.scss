@@ -1,0 +1,11 @@
+svg {
+  width: var(--svg-size, 14px);
+  height: var(--svg-size, 14px);
+}
+
+.school-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size, 18px);
+}

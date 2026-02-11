@@ -18,6 +18,10 @@
     "paths": {
       "@features/*": ["src/app/features/*"],
       "@shared/*": ["src/app/shared/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@entities/*": ["src/app/entities/*"],
+      "@widgets/*": ["src/app/widgets/*"],
+      "@core/*": ["src/app/core/*"],
       "@data-access/*": ["src/app/data-access/*"]
     }
   },

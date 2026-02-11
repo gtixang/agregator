@@ -1,9 +1,14 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { FooterComponent } from '@shared/ui/footer';
+import { HeaderComponent } from '@shared/ui/header';
 
 @Component({
   selector: 'app-root',
-  standalone: false,
+  standalone: true,
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class App {}
+export class App {
+  protected readonly title = signal('Agregator');
+}

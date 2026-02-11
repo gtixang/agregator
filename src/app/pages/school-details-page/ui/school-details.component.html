@@ -1,0 +1,62 @@
+<div class="container">
+  <app-breadcrumbs />
+
+  @if (school$ | async; as school) {
+    @switch (school.status) {
+      @case ('PENDING') {
+        <p>Загрузка данных ...</p>
+      }
+      @case ('ERROR') {
+        <p>Произошла ошибка ...</p>
+      }
+      @case ('READY') {
+        <app-page-header class="school-page__header">
+          <div class="school-page__header-title">
+            <app-page-title
+              [title]="school.data.name"
+              [description]="school.data.description"
+            />
+          </div>
+
+          <div class="school-page__header-info">
+            <app-school-rating
+              class="school-page__rating"
+              [ratingAvg]="school.data.ratingAvg"
+            />
+
+            <app-button class="school-page__reviews-btn">
+              {{ school.data.reviewsCount }} отзывов
+            </app-button>
+          </div>
+        </app-page-header>
+        <div class="page-content">
+          <app-course-filter [displayTitle]="false" />
+          <div class="school-page__courses">
+            <span class="school-page__courses-title">
+              Все курсы {{ school.data.name }}
+            </span>
+            @if (courseLines$ | async; as courseLines) {
+              @switch (courseLines.status) {
+                @case ('PENDING') {
+                  <p>Загрузка данных ...</p>
+                }
+                @case ('ERROR') {
+                  <p>Произошла ошибка ...</p>
+                }
+                @case ('EMPTY') {
+                  <p>Данные отстутствуют ...</p>
+                }
+                @case ('READY') {
+                  <app-course-list
+                    [courseLines]="courseLines.data"
+                    [showLoadMore]="false"
+                  />
+                }
+              }
+            }
+          </div>
+        </div>
+      }
+    }
+  }
+</div>

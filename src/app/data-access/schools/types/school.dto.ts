@@ -18,6 +18,14 @@ export interface CategoryDTO {
 export interface SchoolHasCategoryDTO {
   categories: CategoryDTO;
 }
+
+export interface SchoolSummaryDTO {
+  id: string;
+  name: string;
+  rating_avg: number;
+  reviews_count: { count: number }[];
+}
+
 export interface SchoolDTO {
   id: string;
   name: string;

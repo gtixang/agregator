@@ -2,7 +2,7 @@
 
 import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-
+import { MatSliderModule } from '@angular/material/slider';
 export type RangeValuesPosition = 'top' | 'bottom';
 
 export interface RangeValue {
@@ -12,7 +12,8 @@ export interface RangeValue {
 
 @Component({
   selector: 'app-range',
-  standalone: false,
+  standalone: true,
+  imports: [MatSliderModule],
   templateUrl: './range.component.html',
   styleUrl: './range.component.scss',
   providers: [

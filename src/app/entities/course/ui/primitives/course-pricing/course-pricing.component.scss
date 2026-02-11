@@ -1,0 +1,39 @@
+@use 'variables' as *;
+
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.course-pricing {
+  display: flex;
+  flex-direction: column;
+
+  flex: 0 0 $base-gutter * 24;
+
+  &__old {
+    font-size: 12px;
+    height: 20px;
+    text-decoration: line-through;
+    color: $light-text-color;
+
+    span {
+      font-size: 10px;
+    }
+  }
+
+  &__current {
+    font-size: 18px;
+
+    span {
+      margin-left: $base-gutter;
+      font-size: 12px;
+    }
+  }
+
+  &__credit {
+    color: $accent-color;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}

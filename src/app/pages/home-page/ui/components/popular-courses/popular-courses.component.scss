@@ -1,0 +1,13 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  padding: $base-gutter * 10 0;
+}
+
+.popular-courses {
+  --block-padding: 19px 38px 19px 48px;
+  --availability-direction: row;
+  --availability-gap: 18px;
+  --availability-text-align: left;
+}

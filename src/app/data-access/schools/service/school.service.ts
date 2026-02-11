@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { SupabaseService } from '@data-access/supabase';
+import { SupabaseService } from '@core/supabase';
 import {
   SCHOOL_BASE_FIELDS,
   SCHOOL_SLIDER_FIELDS,
@@ -11,7 +11,13 @@ import { AsyncData } from '@shared/models';
 
 import { PostgrestSingleResponse } from '@supabase/supabase-js';
 import { toAsyncData$ } from '@data-access/utils/async-data.utils';
-import { School, SchoolBaseDTO, SchoolDTO, SchoolPreview } from '../types';
+import {
+  SchoolLine,
+  SchoolBaseDTO,
+  SchoolDTO,
+  SchoolPreview,
+  SchoolDetailPageHeader,
+} from '../types';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +25,7 @@ import { School, SchoolBaseDTO, SchoolDTO, SchoolPreview } from '../types';
 export class SchoolService {
   private readonly supabase = inject(SupabaseService);
 
-  public mapSchoolDto(dto: SchoolDTO): School {
+  public mapSchoolDto(dto: SchoolDTO): SchoolLine {
     return {
       id: dto.id,
       name: dto.name,
@@ -33,7 +39,7 @@ export class SchoolService {
     };
   }
 
-  private async fetchSchoolsList(): Promise<School[]> {
+  private async fetchSchoolLines(): Promise<SchoolLine[]> {
     const { data, error }: PostgrestSingleResponse<SchoolDTO[]> = await this.supabase
       .getSupabase()
       .from(SCHOOLS_TABLE)
@@ -57,7 +63,7 @@ export class SchoolService {
     return data || [];
   }
 
-  private async fetchSchoolById(id: string): Promise<SchoolBaseDTO> {
+  private async fetchSchoolById(id: string): Promise<SchoolDetailPageHeader> {
     const { data, error }: PostgrestSingleResponse<SchoolBaseDTO> = await this.supabase
       .getSupabase()
       .from(SCHOOLS_TABLE)
@@ -66,17 +72,25 @@ export class SchoolService {
       .single();
 
     if (error) throw new Error(`Error fetching school: ${error.message}`);
-    return data;
+
+    const { id: schoolId, name, description, rating_avg, reviews_count } = data;
+    return {
+      id: schoolId,
+      name,
+      description,
+      ratingAvg: rating_avg ?? 0,
+      reviewsCount: reviews_count?.[0]?.count ?? 0,
+    };
   }
 
   public getSchoolsPreview$(): Observable<AsyncData<SchoolPreview[]>> {
     return toAsyncData$(() => this.fetchSchoolsPreview());
   }
 
-  public getSchoolById$(id: string): Observable<AsyncData<SchoolBaseDTO>> {
+  public getSchoolById$(id: string): Observable<AsyncData<SchoolDetailPageHeader>> {
     return toAsyncData$(() => this.fetchSchoolById(id));
   }
-  public getSchoolsList$(): Observable<AsyncData<School[]>> {
-    return toAsyncData$(() => this.fetchSchoolsList());
+  public getSchoolLines$(): Observable<AsyncData<SchoolLine[]>> {
+    return toAsyncData$(() => this.fetchSchoolLines());
   }
 }

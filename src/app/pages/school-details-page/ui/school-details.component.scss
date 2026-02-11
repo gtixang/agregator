@@ -1,0 +1,43 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  background-color: $white;
+}
+
+.school-page {
+  &__courses {
+    --block-padding: 23px 23px 16px 31px;
+    --button-stack-gap: 4px;
+  }
+
+  &__courses-title {
+    display: inline-block;
+    margin: 0 0 30px 30px;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  &__header-title {
+    max-width: 500px;
+  }
+
+  &__header-info {
+    display: flex;
+    align-items: center;
+    gap: 33px;
+  }
+
+  &__rating {
+    font-weight: 900;
+    --font-size: 30px;
+    --svg-size: 26px;
+  }
+
+  &__reviews-btn {
+    line-height: 18px;
+    padding: 15px 46px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+}

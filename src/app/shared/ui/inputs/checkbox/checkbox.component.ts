@@ -5,7 +5,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-checkbox',
-  standalone: false,
+  standalone: true,
   templateUrl: './checkbox.component.html',
   styleUrl: './checkbox.component.scss',
   providers: [

@@ -1,13 +1,4 @@
-import { School } from '@data-access/schools/types';
-
-export interface Feature {
-  icon: string;
-  title: string;
-}
-
-export interface CourseHasFeatures {
-  features: Feature;
-}
+import { SchoolSummaryDTO } from '@data-access/schools/types';
 
 export interface Direction {
   slug: string;
@@ -17,7 +8,10 @@ export interface Direction {
 export interface CourseHasDirection {
   directions: Direction;
 }
-
+export interface Certification {
+  code: string;
+  name: string;
+}
 export interface Level {
   code: string;
   name: string;
@@ -39,14 +33,16 @@ export interface ReviewsCount {
 }
 
 export interface CourseDTO {
+  id: string;
   name: string;
   availability: boolean;
+  has_internship: boolean;
   duration_months: number;
   course_slug: string;
   direction_slug: string;
   levels: Level;
   prices: Price[];
-  course_has_features: CourseHasFeatures[];
+  certification_type: Certification;
   course_has_directions: CourseHasDirection[];
-  school: School;
+  school: SchoolSummaryDTO;
 }

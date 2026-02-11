@@ -1,4 +1,4 @@
-import { CategoryDTO, SchoolDTO } from './school.dto';
+import { CategoryDTO, SchoolBaseDTO, SchoolDTO } from './school.dto';
 
 export interface SchoolPreview {
   id: number;
@@ -6,7 +6,27 @@ export interface SchoolPreview {
   full_logo_url: string;
 }
 
-export type School = Omit<
+export interface SchoolOverviewVM {
+  name: string;
+  transliteration: string;
+  coursesCount: number;
+  categoriesCount: number;
+  categories: Categories[];
+}
+
+export interface Categories {
+  slug: string;
+  title: string;
+}
+
+export interface SchoolSummary {
+  id: string;
+  name: string;
+  ratingAvg: number;
+  reviewsCount: number;
+}
+
+export type SchoolLine = Omit<
   SchoolDTO,
   | 'rating_avg'
   | 'reviews_count'
@@ -17,6 +37,13 @@ export type School = Omit<
   ratingAvg: number;
   reviewsCount: number;
   categoriesCount: number;
-  categories: CategoryDTO[];
+  categories: Categories[];
   coursesCount: number;
+};
+export type SchoolDetailPageHeader = Omit<
+  SchoolBaseDTO,
+  'rating_avg' | 'reviews_count'
+> & {
+  ratingAvg: number;
+  reviewsCount: number;
 };

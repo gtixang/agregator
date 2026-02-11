@@ -1,0 +1,12 @@
+@use 'variables' as *;
+
+:host {
+  min-width: 287px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $white;
+  border-radius: 5px;
+  height: $base-gutter * 45;
+  cursor: pointer;
+}

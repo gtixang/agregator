@@ -1,1 +1,1 @@
-export { COURSES_TABLE, COURSES_SELECT } from './courses.constants';
+export { COURSES_TABLE, COURSE_LINE_SELECT } from './courses.constants';

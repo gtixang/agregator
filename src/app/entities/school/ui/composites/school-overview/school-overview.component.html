@@ -1,0 +1,12 @@
+<div class="school-overview">
+  <app-school-name class="school-overview__full-name" [schoolName]="fullName" />
+
+  <span class="school-overview__meta">
+    {{ schoolOverview.coursesCount }} курсов по {{ schoolOverview.categoriesCount }} темам
+  </span>
+  <div class="school-overview__tags">
+    @for (category of schoolOverview.categories; track $index) {
+      <div class="tag">{{ category.title }}</div>
+    }
+  </div>
+</div>
