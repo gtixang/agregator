@@ -1,9 +1,3 @@
 @for (courseLine of courseLines; track courseLine.id) {
   <app-course-line [courseLine]="courseLine" />
 }
-
-@if (!showLoadMore) {
-  <app-pagination />
-} @else {
-  <button>Показать еще</button>
-}

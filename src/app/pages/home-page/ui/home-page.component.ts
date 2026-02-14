@@ -15,6 +15,7 @@ import {
 } from './components';
 import { AsyncPipe } from '@angular/common';
 import { CourseLine } from '@data-access/courses/types';
+import { AsyncStatusComponent } from '@shared/ui/async-status';
 
 @Component({
   selector: 'app-home-page',
@@ -26,6 +27,7 @@ import { CourseLine } from '@data-access/courses/types';
     SchoolsSliderComponent,
     BlogPreviewComponent,
     PopularCoursesComponent,
+    AsyncStatusComponent,
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',

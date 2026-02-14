@@ -1,17 +1,8 @@
-import { AsyncPipe } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  Input,
-  Signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { toSignal } from '@angular/core/rxjs-interop';
 import { SchoolPreview } from '@data-access/schools/types';
 import { SLIDE_FULL_WIDTH } from '@pages/home-page/constants';
-import { AsyncData, AsyncStatus } from '@shared/models';
-import { Observable } from 'rxjs';
+
 import { SchoolSlideComponent } from './school-slide/school-slide.component';
 import { RouterLink } from '@angular/router';
 
@@ -24,7 +15,7 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SchoolsSliderComponent {
-  @Input({ required: true }) schoolsData!: AsyncData<SchoolPreview[]>;
+  @Input({ required: true }) schoolsData!: SchoolPreview[];
 
   @Input() visibleSlides = 4;
 
@@ -35,9 +26,7 @@ export class SchoolsSliderComponent {
   }
 
   get maxIndex(): number {
-    const dataLength =
-      this.schoolsData.status === AsyncStatus.READY ? this.schoolsData.data.length : 0;
-    return Math.max(0, dataLength - this.visibleSlides);
+    return Math.max(0, this.schoolsData.length - this.visibleSlides);
   }
 
   prevSlide() {

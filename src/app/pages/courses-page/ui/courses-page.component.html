@@ -20,24 +20,11 @@
     <app-course-sorting />
 
     @if (courseLines$ | async; as courseLines) {
-      @switch (courseLines.status) {
-        @case ('PENDING') {
-          <p>Загрузка данных ...</p>
-        }
-        @case ('ERROR') {
-          <p>Произошла ошибка ...</p>
-        }
-        @case ('EMPTY') {
-          <p>Данные отстутствуют ...</p>
-        }
-        @case ('READY') {
-          <app-course-list
-            class="courses-list"
-            [courseLines]="courseLines.data"
-            [showLoadMore]="false"
-          />
-        }
-      }
+      <app-async-status [data]="courseLines">
+        <ng-template let-courseLines>
+          <app-course-list [courseLines]="courseLines" />
+        </ng-template>
+      </app-async-status>
     }
 
     <div class="course-categories">
@@ -49,20 +36,11 @@
     <div class="school-list">
       <h3>Онлайн-школы преподающие программирование</h3>
       @if (schoolLines$ | async; as schoolLines) {
-        @switch (schoolLines.status) {
-          @case ('PENDING') {
-            <p>Загрузка данных ...</p>
-          }
-          @case ('ERROR') {
-            <p>Произошла ошибка ...</p>
-          }
-          @case ('EMPTY') {
-            <p>Данные отстутствуют ...</p>
-          }
-          @case ('READY') {
-            <app-school-list [schoolLines]="schoolLines.data" />
-          }
-        }
+        <app-async-status [data]="schoolLines">
+          <ng-template let-schoolLines>
+            <app-school-list [schoolLines]="schoolLines" />
+          </ng-template>
+        </app-async-status>
       }
     </div>
   </div>

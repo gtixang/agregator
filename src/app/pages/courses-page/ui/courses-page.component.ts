@@ -6,7 +6,7 @@ import { SchoolLine } from '@data-access/schools/types';
 import { AsyncData } from '@shared/models';
 import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { CourseCategoriesComponent } from '../components';
-import { BreadcrumbsComponent } from '@widgets/breadcrumbs';
+
 import { CourseListComponent } from '@widgets/course-list';
 import { SchoolListComponent } from '@widgets/school-list';
 import { CourseSortingComponent } from '@features/course-sorting';
@@ -14,6 +14,8 @@ import { CourseFilterComponent } from '@features/course-filter';
 import { CategoriesTabsComponent } from '@features/categories-tabs';
 import { PageTitleComponent } from '@shared/ui/page-title';
 import { AsyncPipe } from '@angular/common';
+import { BreadcrumbsComponent } from '@shared/ui/breadcrumbs';
+import { AsyncStatusComponent } from '@shared/ui/async-status';
 
 @Component({
   selector: 'app-courses-page',
@@ -28,6 +30,7 @@ import { AsyncPipe } from '@angular/common';
     CourseSortingComponent,
     CategoriesTabsComponent,
     PageTitleComponent,
+    AsyncStatusComponent,
   ],
   templateUrl: './courses-page.component.html',
   styleUrl: './courses-page.component.scss',

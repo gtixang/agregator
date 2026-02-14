@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-school-reviews-count-link',
@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   imports: [],
   templateUrl: './school-reviews-count-link.component.html',
   styleUrl: './school-reviews-count-link.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SchoolReviewsCountLinkComponent {
   @Input({ required: true }) reviewCount!: number;

@@ -1,0 +1,16 @@
+@switch (data.status) {
+  @case ('PENDING') {
+    <p>Загрузка данных ...</p>
+  }
+  @case ('ERROR') {
+    <p>Произошла ошибка ...</p>
+  }
+  @case ('EMPTY') {
+    <p>Данные отстутствуют ...</p>
+  }
+  @case ('READY') {
+    <ng-container
+      *ngTemplateOutlet="contentTemplate; context: { $implicit: data.data }"
+    />
+  }
+}

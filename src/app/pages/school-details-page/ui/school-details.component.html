@@ -2,61 +2,41 @@
   <app-breadcrumbs />
 
   @if (school$ | async; as school) {
-    @switch (school.status) {
-      @case ('PENDING') {
-        <p>Загрузка данных ...</p>
-      }
-      @case ('ERROR') {
-        <p>Произошла ошибка ...</p>
-      }
-      @case ('READY') {
+    <app-async-status [data]="school">
+      <ng-template let-school>
         <app-page-header class="school-page__header">
           <div class="school-page__header-title">
-            <app-page-title
-              [title]="school.data.name"
-              [description]="school.data.description"
-            />
+            <app-page-title [title]="school.name" [description]="school.description" />
           </div>
 
           <div class="school-page__header-info">
             <app-school-rating
               class="school-page__rating"
-              [ratingAvg]="school.data.ratingAvg"
+              [ratingAvg]="school.ratingAvg"
             />
 
             <app-button class="school-page__reviews-btn">
-              {{ school.data.reviewsCount }} отзывов
+              {{ school.reviewsCount }} отзывов
             </app-button>
           </div>
         </app-page-header>
+
         <div class="page-content">
           <app-course-filter [displayTitle]="false" />
+
           <div class="school-page__courses">
-            <span class="school-page__courses-title">
-              Все курсы {{ school.data.name }}
-            </span>
+            <span class="school-page__courses-title">Все курсы {{ school.name }}</span>
             @if (courseLines$ | async; as courseLines) {
-              @switch (courseLines.status) {
-                @case ('PENDING') {
-                  <p>Загрузка данных ...</p>
-                }
-                @case ('ERROR') {
-                  <p>Произошла ошибка ...</p>
-                }
-                @case ('EMPTY') {
-                  <p>Данные отстутствуют ...</p>
-                }
-                @case ('READY') {
-                  <app-course-list
-                    [courseLines]="courseLines.data"
-                    [showLoadMore]="false"
-                  />
-                }
-              }
+              <app-async-status [data]="courseLines">
+                <ng-template let-courseLines>
+                  <app-course-list [courseLines]="courseLines" />
+                  <app-pagination />
+                </ng-template>
+              </app-async-status>
             }
           </div>
         </div>
-      }
-    }
+      </ng-template>
+    </app-async-status>
   }
 </div>

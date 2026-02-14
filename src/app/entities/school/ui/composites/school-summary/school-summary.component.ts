@@ -14,7 +14,7 @@ import { SchoolNameComponent } from '../../primitives/school-name/school-name.co
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SchoolSummaryComponent {
-  @Input() schoolName!: string;
+  @Input({ required: true }) schoolName!: string;
   @Input({ required: true }) ratingAvg!: number;
   @Input({ required: true }) reviewCount!: number;
 }

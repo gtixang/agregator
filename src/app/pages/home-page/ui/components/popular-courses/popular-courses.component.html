@@ -2,22 +2,9 @@
   <h2>Популярные онлайн-курсы</h2>
   <app-categories-tabs />
 
-  @switch (courseLines.status) {
-    @case ('PENDING') {
-      <p>Загрузка данных ...</p>
-    }
-    @case ('ERROR') {
-      <p>Произошла ошибка ...</p>
-    }
-    @case ('EMPTY') {
-      <p>Данные отстутствуют ...</p>
-    }
-    @case ('READY') {
-      <app-course-list
-        class="popular-courses"
-        [courseLines]="courseLines.data"
-        [showLoadMore]="true"
-      />
-    }
-  }
+  <div class="course-list">
+    <app-course-list [courseLines]="courseLines" />
+
+    <app-button class="is-light load-more">Посмотреть еще</app-button>
+  </div>
 </div>

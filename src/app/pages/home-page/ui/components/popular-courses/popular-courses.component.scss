@@ -5,9 +5,18 @@
   padding: $base-gutter * 10 0;
 }
 
-.popular-courses {
+.course-list {
   --block-padding: 19px 38px 19px 48px;
   --availability-direction: row;
   --availability-gap: 18px;
   --availability-text-align: left;
+}
+
+.load-more {
+  max-width: 180px;
+  padding: 12px 41px;
+  margin: 25px auto auto auto;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
 }

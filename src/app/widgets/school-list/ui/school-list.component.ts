@@ -1,8 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { AsyncPipe } from '@angular/common';
 import { SchoolLine } from '@data-access/schools/types';
-import { AsyncData } from '@shared/models';
-import { Observable } from 'rxjs';
 import { SchoolLineComponent } from '@entities/school/ui/composites/school-line';
 
 @Component({

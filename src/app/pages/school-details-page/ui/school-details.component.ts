@@ -6,12 +6,11 @@ import { CourseService } from '@data-access/courses';
 import { SchoolService } from '@data-access/schools';
 
 import { CourseLine } from '@data-access/courses/types';
-import { SchoolDetailPageHeader, SchoolPreview } from '@data-access/schools/types';
+import { SchoolDetailPageHeader } from '@data-access/schools/types';
 
 import { AsyncData } from '@shared/models';
 import { AsyncPipe } from '@angular/common';
 
-import { BreadcrumbsComponent } from '@widgets/breadcrumbs';
 import { CourseListComponent } from '@widgets/course-list';
 
 import { CourseFilterComponent } from '@features/course-filter';
@@ -19,6 +18,9 @@ import { SchoolRatingComponent } from '@entities/school';
 import { PageTitleComponent } from '@shared/ui/page-title';
 import { PageHeaderComponent } from '@shared/ui/page-header';
 import { ButtonComponent } from '@shared/ui';
+import { BreadcrumbsComponent } from '@shared/ui/breadcrumbs';
+import { PaginationComponent } from '@shared/ui/pagination';
+import { AsyncStatusComponent } from '@shared/ui/async-status';
 
 @Component({
   selector: 'app-school-detail',
@@ -32,6 +34,8 @@ import { ButtonComponent } from '@shared/ui';
     SchoolRatingComponent,
     PageHeaderComponent,
     ButtonComponent,
+    PaginationComponent,
+    AsyncStatusComponent,
   ],
   templateUrl: './school-details.component.html',
   styleUrl: './school-details.component.scss',

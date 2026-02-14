@@ -6,19 +6,25 @@ import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 
 import { CategoriesFilterComponent } from '@features/categories-filter';
 import { SchoolListComponent } from '@widgets/school-list';
-import { BreadcrumbsComponent } from '@widgets/breadcrumbs';
+
 import { PageTitleComponent } from '@shared/ui/page-title';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
+import { BreadcrumbsComponent } from '@shared/ui/breadcrumbs';
+import { PaginationComponent } from '@shared/ui/pagination';
+import { AsyncStatusComponent } from '@shared/ui/async-status';
 
 @Component({
   selector: 'app-schools-page',
   standalone: true,
   imports: [
     AsyncPipe,
+    CommonModule,
     BreadcrumbsComponent,
     SchoolListComponent,
     CategoriesFilterComponent,
     PageTitleComponent,
+    PaginationComponent,
+    AsyncStatusComponent,
   ],
   templateUrl: './schools-page.component.html',
   styleUrl: './schools-page.component.scss',

@@ -26,7 +26,7 @@ export class CourseService {
     if (error) {
       throw new Error(`Error fetching courses: ${error.message}`);
     }
-    console.log(data);
+
     return data;
   }
 
