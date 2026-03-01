@@ -1,8 +1,0 @@
-@use 'variables' as *;
-
-:host {
-  display: block;
-  height: 100%;
-  padding: $base-gutter * 5 0;
-  background-color: $white;
-}

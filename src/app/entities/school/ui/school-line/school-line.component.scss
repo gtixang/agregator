@@ -1,0 +1,78 @@
+@use 'variables' as *;
+
+:host {
+  padding: 0 41px 0 38px;
+  min-height: 134px;
+  max-height: 134px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $course-line-border-color;
+  border-radius: $base-gutter;
+  box-shadow: 0 9px 15px rgba(226, 226, 226, 0.25);
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+}
+
+.btn-details {
+  padding: 0 33px;
+}
+
+.school-summary {
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__name {
+    display: inline-block;
+    font-size: 18px;
+  }
+  &__reviews-link {
+    font-size: 12px;
+    line-height: 27px;
+    color: $accent-color;
+  }
+}
+.school-overview {
+  display: flex;
+  flex-direction: column;
+  margin-right: 147px;
+  min-height: 134px;
+  max-height: 134px;
+  height: 100%;
+  padding: 28px 75px 24px 33px;
+  border-left: var(--school-overview-border-left, none);
+  border-right: var(--school-overview-border-right, none);
+
+  &__full-name {
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  &__meta {
+    display: inline-block;
+    margin-bottom: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 27px;
+  }
+
+  &__tags {
+    display: flex;
+    gap: 6px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 22px;
+
+    .tag {
+      padding: 0 11px;
+      background: #f0f3fc;
+      border-radius: 15px;
+    }
+  }
+}

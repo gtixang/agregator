@@ -1,0 +1,24 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  padding: $base-gutter * 5 0;
+  background-color: $white;
+}
+
+.page-header {
+  --page-header-description-width: 600px;
+
+  &__action {
+    padding: 8px 52px;
+    margin-bottom: 12px;
+  }
+}
+
+.school-rating {
+  display: inline-block;
+  margin-top: 35px;
+  font-weight: 900;
+  --font-size: 30px;
+  --svg-size: 26px;
+}

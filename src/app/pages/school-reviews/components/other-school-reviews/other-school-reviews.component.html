@@ -1,0 +1,12 @@
+<div class="other-schools-reviews">
+  <span class="other-schools-reviews__title">Отзывы о других школах</span>
+  @for (school of otherSchoolsReviews; track $index) {
+    <div class="other-schools-reviews__line">
+      <span class="other-schools-reviews__name">{{ school.name }}</span>
+      <span class="other-schools-reviews__count">
+        {{ school.reviewsCount }} отзывов
+      </span>
+      <span class="other-schools-reviews__rating">{{ school.rating }} ★</span>
+    </div>
+  }
+</div>

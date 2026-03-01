@@ -1,0 +1,24 @@
+<div class="school-summary">
+  <span class="school-summary__name">{{ school.name }}</span>
+  <app-school-rating [ratingAvg]="school.ratingAvg" />
+  <span class="school-summary__reviews-link">
+    Отзывы о школе {{ school.reviewsCount }}
+  </span>
+</div>
+
+<div class="school-overview">
+  <span class="school-overview__full-name">{{ fullName }}</span>
+
+  <span class="school-overview__meta">
+    {{ school.coursesCount }} курсов по {{ school.categoriesCount }} темам
+  </span>
+  <div class="school-overview__tags">
+    @for (category of school.categories; track $index) {
+      <div class="tag">{{ category.title }}</div>
+    }
+  </div>
+</div>
+
+<!-- <app-school-overview [schoolOverview]="schoolLine" /> -->
+
+<app-button class="is-accent btn-details">Подробнее</app-button>

@@ -1,1 +1,1 @@
-export { ButtonComponent } from './ui/button.component';
+export { ButtonComponent } from './button.component';

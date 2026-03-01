@@ -1,0 +1,23 @@
+.school-header {
+  --page-header-description-width: 500px;
+
+  &__info {
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 33px;
+  }
+
+  &__rating {
+    font-weight: 900;
+    --font-size: 30px;
+    --svg-size: 26px;
+  }
+
+  &__reviews-btn {
+    line-height: 18px;
+    padding: 15px 46px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+}

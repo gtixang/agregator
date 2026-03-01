@@ -1,0 +1,22 @@
+<app-banner />
+<app-advantages class="bg-white" />
+
+<app-course-directions-tabs />
+
+@if (schoolsPreviews$ | async; as schoolsPreviewsResult) {
+  <app-async-status [data]="schoolsPreviewsResult">
+    <ng-template let-schoolsData>
+      <app-schools-slider [schoolsData]="schoolsData" class="bg-white" />
+    </ng-template>
+  </app-async-status>
+}
+
+@if (courses$ | async; as courses) {
+  <app-async-status [data]="courses">
+    <ng-template let-courses>
+      <app-popular-courses [courses]="courses" class="bg-white" />
+    </ng-template>
+  </app-async-status>
+}
+
+<app-blog-preview class="bg-white" />

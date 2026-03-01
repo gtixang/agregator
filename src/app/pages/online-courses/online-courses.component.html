@@ -1,0 +1,60 @@
+<div class="container">
+  <app-breadcrumbs />
+
+  <div class="page-header">
+    <app-page-header
+      [title]="'Онлайн-курсы'"
+      [description]="'Список всех онлайн-курсов с рейтингом,отзывами и детальным описанием курса 2021 года. Для удобства поиска курса используйтефильтры, сортировку, сравнение и поиск. Мы обновляем информацию о всех курсах каждую неделю.'"
+    />
+  </div>
+</div>
+
+<div class="tab-section">
+  <div class="container">
+    <app-course-topic-tab class="is-wide" />
+  </div>
+</div>
+
+<div class="page-content">
+  <div>
+    <span class="search-result">Найдено 6036 курсов</span>
+    <app-course-filter />
+  </div>
+
+  <div class="main">
+    <app-sort-controls />
+
+    <div class="course-list">
+      @if (courses$ | async; as courses) {
+        <app-async-status [data]="courses">
+          <ng-template let-courses>
+            <span class="school-courses__title">
+              {{ courses[0]?.school?.name }}
+            </span>
+            <app-course-list [courses]="courses"></app-course-list>
+            <app-pagination />
+          </ng-template>
+        </app-async-status>
+      }
+    </div>
+
+    <div class="course-categories">
+      <span class="title">Другие категории курсов по направлению программирование</span>
+      <app-course-categories />
+    </div>
+
+    <div class="school-list">
+      <span class="title">Онлайн-школы преподающие программирование</span>
+      <!-- programming-schools-block перенести в компонент -->
+
+      @if (schools$ | async; as schools) {
+        <app-async-status [data]="schools">
+          <ng-template let-schools>
+            <app-school-list [schools]="schools"></app-school-list>
+            <app-pagination />
+          </ng-template>
+        </app-async-status>
+      }
+    </div>
+  </div>
+</div>

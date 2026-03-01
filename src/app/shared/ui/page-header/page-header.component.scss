@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.page-header {
+  &__title {
+    font-weight: 900;
+  }
+
+  &__description {
+    display: inline-block;
+    width: var(--page-header-description-width, 1160px);
+  }
+}

@@ -1,0 +1,48 @@
+<div class="course-name">
+  <span>{{ course.name }}</span>
+</div>
+
+<div class="school-summary">
+  <span class="school-summary__name">{{ course.school.name }}</span>
+  <app-school-rating [ratingAvg]="course.school.ratingAvg" />
+  <span class="school-summary__reviews-link">
+    Отзывы о школе {{ course.school.reviewsCount }}
+  </span>
+</div>
+
+<div class="course-pricing">
+  @for (price of course.prices; track $index) {
+    <div class="course-pricing__old">{{ price.old }} <span>руб</span></div>
+    <div class="course-pricing__current">{{ price.current }}<span>руб</span></div>
+    <div class="course-pricing__credit">
+      <span>от {{ price.credit }} руб./месяц</span>
+    </div>
+  }
+</div>
+
+<div class="availability">
+  <svg class="availability__icon">
+    <use [attr.xlink:href]="'icons/sprite.svg#clock'"></use>
+  </svg>
+  <span class="availability__text">В любое<br />время</span>
+</div>
+
+<div class="features">
+  @for (feature of courseFeatures; track $index) {
+    <div>
+      <svg class="feature__icon">
+        <use [attr.xlink:href]="'icons/sprite.svg#' + feature.icon"></use>
+      </svg>
+      <span class="feature__text">{{ feature.text }}</span>
+    </div>
+  }
+</div>
+
+<div class="button-group">
+  <app-button class="is-accent">На сайт курса</app-button>
+  <app-button [routerLink]="['/course', course.course_slug]">Подробнее</app-button>
+  <ng-content select="[actions]"></ng-content>
+  <app-button class="is-light is-no-border is-small btn-compare">
+    Добавить к сравнению
+  </app-button>
+</div>

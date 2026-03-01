@@ -1,0 +1,12 @@
+<h2>Школы</h2>
+<div class="slider">
+  <div class="slider__content">
+    <div class="slider__track" [style.transform]="transform">
+      @for (school of schoolsData; track school.id) {
+        <app-school-slide [school]="school" [routerLink]="['/school', school.id]" />
+      }
+    </div>
+  </div>
+  <button class="slider__nav-btn slider__nav-btn--prev" (click)="prevSlide()">←</button>
+  <button class="slider__nav-btn slider__nav-btn--next" (click)="nextSlide()">→</button>
+</div>

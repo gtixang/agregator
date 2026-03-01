@@ -1,0 +1,29 @@
+<h3 class="add-review__title">Оставить отзыв</h3>
+<p class="add-review__desc">
+  В данном разделе вы можете оставить ваш отзыв о компании Skillbox
+</p>
+
+<form [formGroup]="form" class="add-review__form">
+  <div class="add-review__rating">
+    <app-rating-input formControlName="rating"></app-rating-input>
+  </div>
+  <input
+    type="text"
+    class="add-review__input"
+    formControlName="authorName"
+    placeholder="Ваше имя"
+  />
+  <input
+    type="text"
+    class="add-review__input"
+    formControlName="title"
+    placeholder="Введите заголовок отзыва"
+  />
+  <textarea
+    name=""
+    id=""
+    class="add-review__text"
+    formControlName="text"
+    placeholder="Напишите ваш отзыв"
+  ></textarea>
+</form>

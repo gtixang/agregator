@@ -1,0 +1,23 @@
+<div class="container">
+  <app-breadcrumbs />
+
+  <app-school-header></app-school-header>
+
+  <div class="page-content">
+    <app-course-filter />
+
+    <div class="school-courses">
+      @if (courses$ | async; as courses) {
+        <app-async-status [data]="courses">
+          <ng-template let-courses>
+            <span class="school-courses__title">
+              {{ courses[0]?.school?.name }}
+            </span>
+            <app-course-list [courses]="courses"></app-course-list>
+            <app-pagination />
+          </ng-template>
+        </app-async-status>
+      }
+    </div>
+  </div>
+</div>

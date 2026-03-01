@@ -1,0 +1,20 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  background-color: $white;
+  padding: $base-gutter * 5 0;
+}
+
+.school-courses {
+  --block-padding: 23px 23px 16px 31px;
+  --button-stack-gap: 4px;
+  --availability-direction: column;
+
+  &__title {
+    display: inline-block;
+    margin: 0 0 30px 30px;
+    font-weight: 700;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,42 @@
+.other-schools-reviews {
+  background-color: #f6f7ff;
+  border-radius: 5px 5px 0 0;
+
+  &__title {
+    display: inline-block;
+    width: 100%;
+    padding: 20px 16px 15px 26px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  &__line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 26px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  &__name {
+    flex-shrink: 0;
+    width: 110px;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  &__count {
+    width: 65px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #8c8c8c;
+  }
+
+  &__rating {
+    font-size: 22px;
+    color: #ffb800;
+  }
+}

@@ -1,1 +1,1 @@
-export { SchoolListComponent } from './ui/school-list.component';
+export { SchoolListComponent } from './school-list.component';

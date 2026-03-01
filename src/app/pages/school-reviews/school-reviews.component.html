@@ -1,0 +1,28 @@
+<div class="container container--full">
+  <app-breadcrumbs />
+  <div class="page-header">
+    <app-page-header
+      [title]="'Отзывы Skillbox'"
+      [description]="'Самая популярная онлайн-школа. Обучают дизайну, маркетингу, программированию, аналитике и менеджменту. У них есть курсы по всем IT и Digital профессиям.'"
+    >
+      <app-button class="is-accent page-header__action">Курсы Skillbox</app-button>
+    </app-page-header>
+    <app-school-rating class="school-rating" [ratingAvg]="4.5" />
+  </div>
+</div>
+
+<div class="page-content page-content--reviews-full">
+  <aside class="reviews-aside">
+    <app-review-stats></app-review-stats>
+    <app-other-school-reviews></app-other-school-reviews>
+  </aside>
+  <div class="reviews-main">
+    <app-reviews-controls></app-reviews-controls>
+
+    <ul class="reviews-list">
+      <app-review-card [review]="review"></app-review-card>
+    </ul>
+
+    <app-create-review-form></app-create-review-form>
+  </div>
+</div>

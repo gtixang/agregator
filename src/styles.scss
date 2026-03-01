@@ -45,7 +45,11 @@ img {
   max-width: $container-width;
   margin: 0 auto;
 }
-
+.container--full {
+  width: 100%;
+  max-width: $container-full-width;
+  margin: 0 auto;
+}
 .bg-white {
   background-color: $white;
 }
@@ -58,6 +62,15 @@ img {
   grid-template-columns: 246px 960px;
   gap: 20px;
 }
+.page-content--reviews-full {
+  max-width: 1226px;
+  margin: 0 auto 100px;
+  padding-top: $base-gutter * 2;
+  display: grid;
+  grid-template-columns: 380px 824px;
+  gap: 20px;
+}
+
 .main {
   display: flex;
   flex-direction: column;

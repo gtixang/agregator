@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  margin-top: 70px;
+}
+
+.add-review__form {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-review__title {
+  margin-bottom: 14px;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.add-review__rating {
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.add-review__desc {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0;
+}

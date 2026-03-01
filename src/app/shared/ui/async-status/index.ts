@@ -1,1 +1,1 @@
-export { AsyncStatusComponent } from './ui/async-status.component';
+export { AsyncStatusComponent } from './async-status.component';

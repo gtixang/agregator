@@ -1,0 +1,131 @@
+@use 'variables' as *;
+
+:host {
+  font-weight: 700;
+  padding: var(--block-padding, 20px 40px 20px 50px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $course-line-border-color;
+  border-radius: $base-gutter;
+  box-shadow: 0 9px 15px rgba(226, 226, 226, 0.25);
+
+  &:not(:last-child) {
+    margin-bottom: $base-gutter * 2;
+  }
+}
+app-button {
+  &:not(:last-child) {
+    margin-bottom: var(--button-stack-gap, 8px);
+  }
+}
+
+.btn-compare {
+  position: relative;
+  margin-top: 8px;
+}
+.btn-compare::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  margin-right: 9px;
+  mask: url('/icons/shuffle.svg') no-repeat center;
+  -webkit-mask: url('/icons/shuffle.svg') no-repeat center;
+  background-color: currentColor;
+}
+
+.course-name {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: pre-line;
+
+  flex: 0 0 $base-gutter * 27;
+}
+
+.school-summary {
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__name {
+    display: inline-block;
+    font-size: 18px;
+  }
+  &__reviews-link {
+    font-size: 12px;
+    line-height: 27px;
+    color: $accent-color;
+  }
+}
+
+.course-pricing {
+  display: flex;
+  flex-direction: column;
+
+  flex: 0 0 $base-gutter * 24;
+
+  &__old {
+    font-size: 12px;
+    height: 20px;
+    text-decoration: line-through;
+    color: $light-text-color;
+
+    span {
+      font-size: 10px;
+    }
+  }
+
+  &__current {
+    font-size: 18px;
+
+    span {
+      margin-left: $base-gutter;
+      font-size: 12px;
+    }
+  }
+
+  &__credit {
+    color: $accent-color;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}
+
+.availability {
+  display: flex;
+  flex-direction: var(--availability-direction, row);
+  gap: var(--availability-gap, 8px);
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: var(--availability-text-align, center);
+
+  &__icon {
+    width: 17px;
+    height: 17px;
+  }
+
+  &__text {
+    display: inline-block;
+  }
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__icon {
+    margin-right: 18px;
+    width: 12px;
+    height: 12px;
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 24px;
+  }
+}

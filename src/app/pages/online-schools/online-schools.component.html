@@ -1,0 +1,22 @@
+<div class="container">
+  <app-breadcrumbs />
+
+  <div class="page-header">
+    <app-page-header
+      [title]="'Онлайн-школы'"
+      [description]="'Список онлайн-школ, преподающих Онлайн-курсы с рейтингом, отзывами и детальным описанием курса 2021 года. Подробные описания, цены, удобное сравнение характеристик курса.'"
+    />
+  </div>
+
+  <div class="page-content">
+    <app-school-category-filters />
+    @if (schools$ | async; as schools) {
+      <app-async-status [data]="schools">
+        <ng-template let-schools>
+          <app-school-list [schools]="schools"></app-school-list>
+          <app-pagination />
+        </ng-template>
+      </app-async-status>
+    }
+  </div>
+</div>

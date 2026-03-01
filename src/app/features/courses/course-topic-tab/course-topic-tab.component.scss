@@ -1,0 +1,29 @@
+@use 'variables' as *;
+
+:host {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+
+  margin-bottom: $base-gutter * 6.6;
+
+  &.is-wide {
+    justify-content: flex-start;
+    margin: 0 -20px;
+  }
+}
+
+.item {
+  padding: 0 $base-gutter * 4;
+  border-radius: 50px;
+  font-weight: 600;
+  line-height: 40px;
+  cursor: pointer;
+  transition: background-color linear 0.3s;
+
+  &:hover,
+  &.is-active {
+    background-color: $accent-color;
+    color: $white;
+  }
+}

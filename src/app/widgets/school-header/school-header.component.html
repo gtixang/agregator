@@ -1,0 +1,19 @@
+@if (school$ | async; as school) {
+  <app-async-status [data]="school">
+    <ng-template let-school>
+      <div class="school-header">
+        <app-page-header [title]="school.name" [description]="school.description">
+          <div class="school-header__info">
+            <app-school-rating
+              class="school-header__rating"
+              [ratingAvg]="school.ratingAvg"
+            />
+            <app-button [routerLink]="'reviews'" class="school-header__reviews-btn">
+              {{ school.reviewsCount }} отзывов
+            </app-button>
+          </div>
+        </app-page-header>
+      </div>
+    </ng-template>
+  </app-async-status>
+}

@@ -1,0 +1,11 @@
+<span class="reviews-stats__count">71 отзыв от пользователей</span>
+<div class="reviews-stats">
+  <div class="reviews-stats__lines">
+    @for (line of statistics; track $index) {
+      <div class="reviews-stats__line">
+        <span class="reviews-stats__key">{{ line.key }}</span>
+        <span class="reviews-stats__value">{{ line.value }}</span>
+      </div>
+    }
+  </div>
+</div>

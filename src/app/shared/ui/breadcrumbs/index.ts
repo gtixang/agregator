@@ -1,1 +1,1 @@
-export { BreadcrumbsComponent } from './ui/breadcrumbs.component';
+export { BreadcrumbsComponent } from './breadcrumbs.component';
