@@ -11,7 +11,7 @@
 
 <div class="tab-section">
   <div class="container">
-    <app-course-topic-tab class="is-wide" />
+    <app-topics-tabs class="is-wide"></app-topics-tabs>
   </div>
 </div>
 
@@ -22,7 +22,7 @@
   </div>
 
   <div class="main">
-    <app-sort-controls />
+    <app-course-sort-controls></app-course-sort-controls>
 
     <div class="course-list">
       @if (courses$ | async; as courses) {

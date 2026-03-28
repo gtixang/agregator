@@ -18,3 +18,37 @@
     font-size: 18px;
   }
 }
+.school-header {
+  --page-header-description-width: 500px;
+
+  &__info {
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 33px;
+  }
+
+  &__rating {
+    display: flex;
+    gap: 15px;
+  }
+
+  &__rating-star {
+    width: 26px;
+    height: 26px;
+    fill: #ffb800;
+  }
+  &__rating-value {
+    display: inline-block;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 28px;
+  }
+
+  &__reviews-btn {
+    line-height: 18px;
+    padding: 15px 46px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+}

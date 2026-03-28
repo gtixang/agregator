@@ -6,8 +6,8 @@ export const SCHOOL_BASE_FIELDS = `
   id,
   name,
   description,
-  rating_avg,
-  reviews_count:reviews(count)
+  rating_avg:school_rating_stats(rating_avg),
+  reviews_count:school_rating_stats(reviews_count)
 `;
 
 export const SCHOOL_EXTRA_FIELDS = `

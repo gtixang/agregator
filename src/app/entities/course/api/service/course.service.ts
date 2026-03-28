@@ -1,15 +1,14 @@
 import { inject, Injectable } from '@angular/core';
-import { SupabaseService } from '@core/supabase';
+import { SupabaseService } from '@shared/api';
 import { PostgrestResponse, PostgrestSingleResponse } from '@supabase/supabase-js';
 import { Observable } from 'rxjs';
 
-import { CourseDTO } from '../dto/course.dto';
-import { CourseLine } from '../../model/course-line.model';
-import { mapCourseLineDto } from '@shared/mappers/course.mapper';
 import { AsyncData } from '@shared/models';
-import { toAsyncData$ } from '@shared/lib/rxjs/async-data.utils';
-
-import { COURSES_SELECT, COURSES_TABLE } from '../constants/courses.constants';
+import { toAsyncData$ } from '@shared/lib/rxjs';
+import { CourseLine } from '../../model';
+import { CourseDTO } from '../dto';
+import { COURSES_SELECT, COURSES_TABLE } from '../constants';
+import { mapCourseLineDto } from '../../mappers';
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +32,7 @@ export class CourseService {
   //   return toAsyncData$(() => this.fetchDirectionsForHomepage());
   // }
 
-  public async fetchAll(): Promise<CourseLine[]> {
+  private async fetchAll(): Promise<CourseLine[]> {
     const { data, error }: PostgrestSingleResponse<CourseDTO[]> = await this.supabase
       .getSupabase()
       .from(COURSES_TABLE)
@@ -46,7 +45,7 @@ export class CourseService {
     return data.map((course) => mapCourseLineDto(course));
   }
 
-  private async fetchSchoolId(schoolId: string): Promise<CourseLine[]> {
+  private async fetchBySchoolId(schoolId: string): Promise<CourseLine[]> {
     const { data, error } = (await this.supabase
       .getSupabase()
       .from(COURSES_TABLE)
@@ -56,7 +55,6 @@ export class CourseService {
     if (error) {
       throw new Error(`Error fetching courses: ${error.message}`);
     }
-    console.log('data', data);
 
     return data.map((courses) => mapCourseLineDto(courses));
   }
@@ -66,6 +64,6 @@ export class CourseService {
   }
 
   public getBySchoolId$(schoolId: string): Observable<AsyncData<CourseLine[]>> {
-    return toAsyncData$(() => this.fetchSchoolId(schoolId));
+    return toAsyncData$(() => this.fetchBySchoolId(schoolId));
   }
 }

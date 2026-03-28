@@ -1,12 +1,15 @@
 //Services
-export { CourseService } from './api/service/course.service';
+export { CourseService } from './api/service';
 
 //Ui components
-export { CourseLineComponent } from './ui/course-line/course-line.component';
+export { CourseLineComponent } from './ui';
+
+// Mappers
+export { mapCourseLineDto, mapCourseToFeatures } from './mappers';
 
 //Constants
-export * from './api/constants/courses.constants';
+export * from './api/constants';
 
 // DTOs & Models
-export type * from './api/dto/course.dto';
-export type * from './model/course-line.model';
+export type * from './model';
+export type * from './api/dto';

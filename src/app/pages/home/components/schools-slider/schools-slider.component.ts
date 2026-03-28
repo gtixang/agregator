@@ -3,8 +3,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { SchoolSlideComponent } from './school-slide/school-slide.component';
 import { RouterLink } from '@angular/router';
 
-import { SLIDE_FULL_WIDTH } from '@pages/home/constants';
 import { SchoolPreview } from '@entities/school';
+import { SLIDE_FULL_WIDTH } from '../../constants';
 
 @Component({
   selector: 'app-schools-slider',

@@ -1,0 +1,15 @@
+<div class="statistics">
+  @for (stat of statistics; track $index) {
+    <div class="statistics__line">
+      <span class="statistics__key">
+        {{ stat.rating }}
+        звезд{{ stat.rating === 1 ? 'а' : stat.rating === 5 ? '' : 'ы' }}
+      </span>
+
+      <span class="statistics__value">
+        <span [class]="stat.colorClass" [style.width]="stat.lineWidth + '%'"></span>
+        {{ stat.count }} отзыв
+      </span>
+    </div>
+  }
+</div>

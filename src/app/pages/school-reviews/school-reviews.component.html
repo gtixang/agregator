@@ -1,28 +1,75 @@
 <div class="container container--full">
   <app-breadcrumbs />
-  <div class="page-header">
-    <app-page-header
-      [title]="'Отзывы Skillbox'"
-      [description]="'Самая популярная онлайн-школа. Обучают дизайну, маркетингу, программированию, аналитике и менеджменту. У них есть курсы по всем IT и Digital профессиям.'"
-    >
-      <app-button class="is-accent page-header__action">Курсы Skillbox</app-button>
-    </app-page-header>
-    <app-school-rating class="school-rating" [ratingAvg]="4.5" />
-  </div>
+
+  @if (school$ | async; as school) {
+    <app-async-status [data]="school">
+      <ng-template let-school>
+        <div class="school-header">
+          <app-page-header
+            [title]="`Отзывы ${school.name}`"
+            [description]="school.description"
+          >
+            <app-button
+              [routerLink]="['/school', school.id]"
+              class="is-accent school-header__courses-btn"
+            >
+              Курсы {{ school.name }}
+            </app-button>
+          </app-page-header>
+        </div>
+
+        <div class="school-summary">
+          <div class="school-summary__rating">
+            <div class="school-summary__rating-icon rating--lg">
+              <app-star></app-star>
+            </div>
+            <span class="school-summary__rating-value">
+              {{ school.ratingAvg | number: '1.0-1' : 'en-US' }}
+            </span>
+          </div>
+        </div>
+
+        <div class="reviews-header">
+          <span class="reviews-header__summary">
+            {{ school.reviewsCount }} отзыва от пользователей
+          </span>
+
+          <div class="reviews-header__controls">
+            <app-review-sort-control
+              class="reviews-header__sort"
+              (sortChange)="onSortChange($event)"
+            ></app-review-sort-control>
+
+            <button class="reviews-header__add">Оставить отзыв</button>
+          </div>
+        </div>
+      </ng-template>
+    </app-async-status>
+  }
 </div>
 
 <div class="page-content page-content--reviews-full">
-  <aside class="reviews-aside">
-    <app-review-stats></app-review-stats>
-    <app-other-school-reviews></app-other-school-reviews>
+  <aside class="sidebar">
+    @if (ratingStats$ | async; as stats) {
+      <app-async-status [data]="stats">
+        <ng-template let-stats>
+          <app-rating-statistics [statistics]="stats"></app-rating-statistics>
+        </ng-template>
+      </app-async-status>
+    }
+
+    <app-related-statistics></app-related-statistics>
   </aside>
   <div class="reviews-main">
-    <app-reviews-controls></app-reviews-controls>
-
     <ul class="reviews-list">
-      <app-review-card [review]="review"></app-review-card>
+      @if (reviews$ | async; as reviews) {
+        <app-async-status [data]="reviews">
+          <ng-template let-reviews>
+            <app-review-list [reviews]="reviews"></app-review-list>
+          </ng-template>
+        </app-async-status>
+      }
     </ul>
-
     <app-create-review-form></app-create-review-form>
   </div>
 </div>

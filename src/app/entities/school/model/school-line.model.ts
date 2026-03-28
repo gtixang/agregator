@@ -1,5 +1,5 @@
-import { SchoolDTO } from '../api/dto/school.dto';
-import { Categories } from './school.view-models';
+import { SchoolDTO } from '../api';
+import { Categories } from './categories.model';
 
 export type SchoolLine = Omit<
   SchoolDTO,
@@ -9,7 +9,7 @@ export type SchoolLine = Omit<
   | 'school_has_categories'
   | 'courses_count'
 > & {
-  ratingAvg: number;
+  ratingAvg: any;
   reviewsCount: number;
   transliteration: string;
   categoriesCount: number;

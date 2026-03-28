@@ -1,25 +1,20 @@
 import { inject, Injectable } from '@angular/core';
-import { SupabaseService } from '@core/supabase';
+import { SupabaseService } from '@shared/api';
 
 import { Observable } from 'rxjs';
 import { AsyncData } from '@shared/models';
 
 import { PostgrestSingleResponse } from '@supabase/supabase-js';
-import { toAsyncData$ } from '@shared/lib/rxjs/async-data.utils';
-
-import { mapSchoolLineDto } from '@shared/mappers';
-
-import { SchoolBaseDTO, SchoolDTO } from '../dto/school.dto';
-import { SchoolLine } from '../../model/school-line.model';
-import { SchoolBase, SchoolPreview } from '../../model/school.view-models';
-
+import { toAsyncData$ } from '@shared/lib/rxjs';
+import { SchoolBase, SchoolLine, SchoolPreview } from '../../model';
+import { SchoolBaseDTO, SchoolDTO } from '../dto';
 import {
   SCHOOL_BASE_FIELDS,
   SCHOOL_SLIDER_FIELDS,
   SCHOOLS_SELECT,
   SCHOOLS_TABLE,
-} from '../constants/schools.constant';
-import { mapSchoolBaseDto } from '@shared/mappers/school.mapper';
+} from '../constants';
+import { mapSchoolBaseDto, mapSchoolLineDto } from '../../mappers';
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +32,9 @@ export class SchoolService {
       throw new Error(`Error fetching schools: ${error.message}`);
     }
 
-    return data.map((school) => mapSchoolLineDto(school));
+    let schools = data.map((school) => mapSchoolLineDto(school));
+    console.log(schools);
+    return schools;
   }
 
   private async fetchById(id: string): Promise<SchoolBase> {
@@ -50,7 +47,9 @@ export class SchoolService {
 
     if (error) throw new Error(`Error fetching school: ${error.message}`);
 
-    return mapSchoolBaseDto(data);
+    let school = mapSchoolBaseDto(data);
+
+    return school;
   }
 
   private async fetchPreviews(): Promise<SchoolPreview[]> {

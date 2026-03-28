@@ -9,9 +9,9 @@ import {
 import {
   COURSE_DIRECTIONS_CONTENT_ITEMS,
   COURSE_DIRECTIONS_NAV_ITEMS,
-} from '@pages/home/constants';
+} from '../../constants';
 
-import { CourseDirectionsList, CourseDirectionsNav } from '@pages/home/models';
+import { CourseDirectionsList, CourseDirectionsNav } from '../../models';
 
 @Component({
   selector: 'app-course-directions-tabs',

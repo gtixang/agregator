@@ -1,0 +1,10 @@
+.reviews__controls {
+  display: flex;
+  justify-content: space-between;
+
+  select {
+    width: 140px;
+    border: none;
+    outline: none;
+  }
+}

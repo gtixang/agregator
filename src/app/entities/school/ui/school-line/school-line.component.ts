@@ -1,14 +1,12 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { SchoolLine } from '../../model/school-line.model';
-
-import { ButtonComponent } from '@shared/ui';
-import { SchoolRatingComponent } from '@entities/school/ui/school-rating';
+import { SchoolLine } from '../../model';
+import { ButtonComponent, StarComponent } from '@shared/ui';
 
 @Component({
   selector: 'app-school-line',
   standalone: true,
-  imports: [ButtonComponent, SchoolRatingComponent],
+  imports: [ButtonComponent, StarComponent],
   templateUrl: './school-line.component.html',
   styleUrl: './school-line.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

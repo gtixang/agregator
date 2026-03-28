@@ -6,19 +6,61 @@
   background-color: $white;
 }
 
-.page-header {
+.school-header {
   --page-header-description-width: 600px;
 
-  &__action {
-    padding: 8px 52px;
-    margin-bottom: 12px;
+  &__courses-btn {
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 40px;
+    margin-bottom: 36px;
   }
 }
 
-.school-rating {
-  display: inline-block;
-  margin-top: 35px;
-  font-weight: 900;
-  --font-size: 30px;
-  --svg-size: 26px;
+.school-summary {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 17px;
+    gap: 15px;
+    font-weight: 900;
+    font-size: 30px;
+  }
+
+  &__rating-icon {
+    fill: #ffb800;
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+
+  &__summary {
+    width: 380px;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 14px;
+    color: #8c8c8c;
+  }
+
+  &__controls {
+    width: 100%;
+    max-width: 824px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__add {
+    padding: 0;
+    font-weight: 700;
+    font-size: 14px;
+    color: #00c213;
+  }
 }

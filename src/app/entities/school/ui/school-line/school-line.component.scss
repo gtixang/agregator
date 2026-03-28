@@ -30,6 +30,23 @@
     display: inline-block;
     font-size: 18px;
   }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__rating-icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    fill: #ffb800;
+  }
+  &__rating-value {
+    font-weight: 700;
+    font-size: 18px;
+  }
   &__reviews-link {
     font-size: 12px;
     line-height: 27px;

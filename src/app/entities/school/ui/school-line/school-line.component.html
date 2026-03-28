@@ -1,9 +1,15 @@
 <div class="school-summary">
   <span class="school-summary__name">{{ school.name }}</span>
-  <app-school-rating [ratingAvg]="school.ratingAvg" />
-  <span class="school-summary__reviews-link">
-    Отзывы о школе {{ school.reviewsCount }}
-  </span>
+
+  <div class="school-summary__rating">
+    <span class="school-summary__rating-icon">
+      <app-star></app-star>
+    </span>
+
+    <span class="school-summary__rating-value">{{ school.ratingAvg }}</span>
+  </div>
+
+  <div class="school-summary__reviews-link">Отзывы о школе {{ school.reviewsCount }}</div>
 </div>
 
 <div class="school-overview">

@@ -1,41 +1,11 @@
+import { Direction } from './direction.dto';
+import { Certification } from './certification.dto';
+import { Price } from './price.dto';
+import { Level } from './level.dto';
 import { SchoolSummaryDTO } from '@entities/school';
-
-export interface Direction {
-  slug: string;
-  title: string;
-}
 
 export interface CourseHasDirection {
   directions: Direction;
-}
-export interface Certification {
-  code: string;
-  name: string;
-}
-export interface Level {
-  code: string;
-  name: string;
-}
-
-export interface Price {
-  old: number;
-  current: number;
-  credit: number;
-}
-
-export interface Review {
-  id: string;
-  text: string;
-}
-
-export interface ReviewsCount {
-  count: number;
-}
-
-export interface CourseSchoolDTO {
-  id: string;
-  name: string;
-  rating_avg: number;
 }
 
 export interface CourseDTO {

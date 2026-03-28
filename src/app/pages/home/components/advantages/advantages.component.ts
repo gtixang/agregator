@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ADVANTAGES_ITEMS } from '@pages/home/constants';
+import { ADVANTAGES_ITEMS } from '../../constants';
 
 @Component({
   selector: 'app-advantages',

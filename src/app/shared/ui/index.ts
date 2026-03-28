@@ -1,3 +1,4 @@
-export { ButtonComponent } from './button/button.component';
-export { CheckboxComponent } from './inputs/checkbox/checkbox.component';
-export { RangeComponent } from './inputs/range/range.component';
+export { CheckboxComponent, RangeComponent } from './inputs';
+export { ButtonComponent } from './button';
+export { StarComponent } from './star';
+export { SelectRatingComponent } from './select-rating';

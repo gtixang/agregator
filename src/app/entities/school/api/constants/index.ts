@@ -1,0 +1,7 @@
+export {
+  SCHOOLS_TABLE,
+  SCHOOL_SLIDER_FIELDS,
+  SCHOOL_BASE_FIELDS,
+  SCHOOL_EXTRA_FIELDS,
+  SCHOOLS_SELECT,
+} from './schools.constant';

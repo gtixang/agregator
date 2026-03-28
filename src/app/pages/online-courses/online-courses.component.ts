@@ -2,11 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { CourseCategoriesComponent } from './components/course-categories';
 
-import {
-  SortControlsComponent,
-  CourseFilterComponent,
-  CourseTopicTabComponent,
-} from '@features/courses';
+import { CourseFilterComponent } from '@features/listing/course-filter';
 
 import { BreadcrumbsComponent } from '@shared/ui/breadcrumbs';
 
@@ -22,6 +18,9 @@ import { AsyncStatusComponent } from '@shared/ui/async-status';
 import { AsyncPipe } from '@angular/common';
 import { PaginationComponent } from '@shared/ui/pagination';
 
+import { CourseSortControlsComponent } from '@features/course-list';
+import { TopicsTabsComponent } from '@features/listing';
+
 @Component({
   selector: 'app-online-courses',
   imports: [
@@ -29,13 +28,13 @@ import { PaginationComponent } from '@shared/ui/pagination';
     BreadcrumbsComponent,
     CourseFilterComponent,
     CourseCategoriesComponent,
-    SortControlsComponent,
-    CourseTopicTabComponent,
     PageHeaderComponent,
     SchoolListComponent,
     CourseListComponent,
     AsyncStatusComponent,
     PaginationComponent,
+    TopicsTabsComponent,
+    CourseSortControlsComponent,
   ],
   standalone: true,
   templateUrl: './online-courses.component.html',

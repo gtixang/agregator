@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  margin-bottom: 20px;
+  padding: 34px 30px 30px 40px;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  transition: all linear 0.3s;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    background-color: #f6f7ff;
+    border: 1px solid transparent;
+  }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rating {
+  width: 90px;
+  display: inline-flex;
+  justify-content: space-between;
+  fill: #d3def8;
+}
+.rating--sm app-star {
+  width: 14px;
+  height: 14px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+.text {
+  display: inline-block;
+  margin: 20px 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0%;
+  color: #00c213;
+}
+
+.author {
+  margin-right: 20px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #8c8c8c;
+}

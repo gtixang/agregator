@@ -1,5 +1,10 @@
 @use 'variables' as *;
 
+button {
+  all: unset;
+  cursor: inherit;
+}
+
 :host {
   display: flex;
   gap: 3px;
@@ -15,12 +20,13 @@
   transition: background-color linear 0.3s;
   cursor: pointer;
 
+  &.is-disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
   &:hover {
     background-color: $btn-hover-bg-light;
-  }
-  &.is-light {
-    color: $light-text-color;
-    border-color: $btn-light-border-color;
   }
 
   &.is-no-border {

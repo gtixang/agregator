@@ -1,7 +1,27 @@
 <div class="container">
   <app-breadcrumbs />
 
-  <app-school-header></app-school-header>
+  @if (school$ | async; as school) {
+    <app-async-status [data]="school">
+      <ng-template let-school>
+        <div class="school-header">
+          <app-page-header [title]="school.name" [description]="school.description">
+            <div class="school-header__info">
+              <div class="school-header__rating">
+                <app-star class="school-header__rating-star"></app-star>
+                <span class="school-header__rating-value">
+                  {{ school.ratingAvg | number: '1.0-1' : 'en-US' }}
+                </span>
+              </div>
+              <app-button [routerLink]="'reviews'" class="school-header__reviews-btn">
+                {{ school.reviewsCount }} отзывов
+              </app-button>
+            </div>
+          </app-page-header>
+        </div>
+      </ng-template>
+    </app-async-status>
+  }
 
   <div class="page-content">
     <app-course-filter />

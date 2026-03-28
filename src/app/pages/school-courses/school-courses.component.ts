@@ -1,29 +1,37 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { SchoolLine, SchoolService } from '@entities/school';
+import { RouterLink } from '@angular/router';
+import { switchMap } from 'rxjs';
+import { SchoolService } from '@entities/school';
 
-import { CourseFilterComponent } from '@features/courses/course-filter';
+import { CourseFilterComponent } from '@features/listing/course-filter';
 import { selectRouteParam } from '@shared/lib/route';
-import { AsyncData } from '@shared/models';
 
 import { BreadcrumbsComponent } from '@shared/ui/breadcrumbs';
 import { CourseListComponent } from '@widgets/course-list';
 
-import { SchoolHeaderComponent } from '@widgets/school-header';
-import { BehaviorSubject, combineLatest, Observable, switchMap } from 'rxjs';
 import { AsyncStatusComponent } from '@shared/ui/async-status';
 import { PaginationComponent } from '@shared/ui/pagination';
-import { CourseLine, CourseService } from '@entities/course';
-import { AsyncPipe } from '@angular/common';
+import { CourseService } from '@entities/course';
+import { AsyncPipe, CommonModule } from '@angular/common';
+import { PageHeaderComponent } from '@shared/ui/page-header';
+
+import { ButtonComponent } from '@shared/ui';
+import { StarComponent } from '@shared/ui/star';
+
 @Component({
   selector: 'app-school-courses',
   imports: [
     AsyncPipe,
-    SchoolHeaderComponent,
+    CommonModule,
+    RouterLink,
     CourseFilterComponent,
     CourseListComponent,
     BreadcrumbsComponent,
     AsyncStatusComponent,
     PaginationComponent,
+    PageHeaderComponent,
+    ButtonComponent,
+    StarComponent,
   ],
   standalone: true,
   templateUrl: './school-courses.component.html',
@@ -32,12 +40,14 @@ import { AsyncPipe } from '@angular/common';
 })
 export class SchoolCoursesComponent {
   public readonly courseService = inject(CourseService);
-
-  public readonly reload$ = new BehaviorSubject(null);
+  public readonly schoolService = inject(SchoolService);
   public readonly schoolId$ = selectRouteParam('id');
 
-  public readonly courses$: Observable<AsyncData<CourseLine[]>> = combineLatest([
-    this.reload$,
-    this.schoolId$,
-  ]).pipe(switchMap(([_, id]) => this.courseService.getBySchoolId$(id)));
+  public readonly courses$ = this.schoolId$.pipe(
+    switchMap((id) => this.courseService.getBySchoolId$(id)),
+  );
+
+  public readonly school$ = this.schoolId$.pipe(
+    switchMap((id) => this.schoolService.getById$(id)),
+  );
 }

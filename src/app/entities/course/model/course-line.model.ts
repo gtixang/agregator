@@ -1,10 +1,6 @@
 import { SchoolSummary } from '@entities/school';
-import { Certification, CourseDTO, Direction } from '../api/dto/course.dto';
 
-export interface CourseFeatureVM {
-  icon: string;
-  text: string;
-}
+import { Certification, Direction, CourseDTO } from '../api/dto';
 
 export type CourseLine = Omit<
   CourseDTO,

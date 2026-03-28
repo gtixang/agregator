@@ -1,0 +1,13 @@
+@for (star of stars; track $index) {
+  <div
+    #starsContainer
+    class="select-rating"
+    [class.select-rating--active]="$index < (hoverValue ?? value)"
+    (mouseenter)="hoverValue = $index + 1"
+    (mouseleave)="hoverValue = null"
+    (click)="setRating($index)"
+    viewBox="0 0 26 26"
+  >
+    <app-star></app-star>
+  </div>
+}

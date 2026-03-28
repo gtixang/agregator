@@ -1,1 +1,3 @@
-export { ReviewsControlsComponent } from './reviews-controls/reviews-controls.component';
+export { ReviewSortControlComponent } from './review-sort-control';
+
+export { CreateReviewFormComponent } from './create-review-form';

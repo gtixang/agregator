@@ -4,10 +4,19 @@
 
 <div class="school-summary">
   <span class="school-summary__name">{{ course.school.name }}</span>
-  <app-school-rating [ratingAvg]="course.school.ratingAvg" />
-  <span class="school-summary__reviews-link">
+
+  <div class="school-summary__rating">
+    <span class="school-summary__rating-icon">
+      <app-star></app-star>
+    </span>
+    <span class="school-summary__rating-value">
+      {{ course.school.ratingAvg | number: '1.0-1' : 'en-US' }}
+    </span>
+  </div>
+
+  <div class="school-summary__reviews-link">
     Отзывы о школе {{ course.school.reviewsCount }}
-  </span>
+  </div>
 </div>
 
 <div class="course-pricing">
@@ -42,7 +51,7 @@
   <app-button class="is-accent">На сайт курса</app-button>
   <app-button [routerLink]="['/course', course.course_slug]">Подробнее</app-button>
   <ng-content select="[actions]"></ng-content>
-  <app-button class="is-light is-no-border is-small btn-compare">
+  <app-button class="is-no-border is-small btn-compare">
     Добавить к сравнению
   </app-button>
 </div>

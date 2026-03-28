@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BLOG_PREVIEW_ITEMS } from '@pages/home/constants';
+import { BLOG_PREVIEW_ITEMS } from '../../constants';
 
 import { ButtonComponent } from '@shared/ui';
 

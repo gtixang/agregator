@@ -40,6 +40,15 @@ img {
   max-width: 100%;
   height: auto;
 }
+input {
+  font-family: FSElliotPro, Arial, sans-serif;
+  outline: none;
+}
+
+textarea {
+  font-family: FSElliotPro, Arial, sans-serif;
+  outline: none;
+}
 .container {
   width: 100%;
   max-width: $container-width;

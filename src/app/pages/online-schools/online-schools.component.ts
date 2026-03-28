@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
-import { SchoolCategoryFilterComponent } from '@features/school-category-filter';
+import { TopicsFilterComponent } from '@features/listing/topics-filter';
 import { SchoolListComponent } from '@widgets/school-list';
 
 import { CommonModule } from '@angular/common';
@@ -20,7 +20,7 @@ import { PaginationComponent } from '@shared/ui/pagination';
     CommonModule,
     BreadcrumbsComponent,
     SchoolListComponent,
-    SchoolCategoryFilterComponent,
+    TopicsFilterComponent,
     PageHeaderComponent,
     AsyncStatusComponent,
     PaginationComponent,

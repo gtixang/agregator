@@ -1,0 +1,63 @@
+:host {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.statistics {
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+
+  &__line {
+    display: flex;
+    padding: 0 12px 0 22px;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__key {
+    flex-shrink: 0;
+    width: 135px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 44px;
+  }
+
+  &__value {
+    flex-grow: 1;
+    padding-left: 11px;
+    margin: 10px 0;
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 12px;
+    color: #ffffff;
+    border-radius: 3px;
+    background-color: #e7eafc;
+    z-index: 10;
+
+    &-green {
+      content: '';
+      position: absolute;
+      background-color: #01e45c;
+      border-radius: 3px 0 0 3px;
+      left: 0;
+      width: 45%;
+      height: 100%;
+      z-index: -1;
+    }
+    &-gray {
+      content: '';
+      position: absolute;
+      background-color: #01e45c;
+      background-color: #ccd2f2;
+      border-radius: 3px 0 0 3px;
+      left: 0;
+      width: 45%;
+      height: 100%;
+      z-index: -1;
+    }
+  }
+}

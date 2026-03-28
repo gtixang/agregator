@@ -1,0 +1,19 @@
+<div class="header">
+  <div class="title">{{ review.reviewTitle }}.</div>
+  <div class="rating rating--sm">
+    @for (star of stars; track $index) {
+      <app-star [filled]="$index < review.rating"></app-star>
+    }
+  </div>
+</div>
+<div class="text">
+  {{ review.reviewText }}
+  <br />
+</div>
+<div class="footer">
+  <button class="button">Читать полностью -></button>
+  <div class="author">
+    {{ review.authorName }}, &nbsp;
+    {{ review.createdAt | relativeDate }}
+  </div>
+</div>

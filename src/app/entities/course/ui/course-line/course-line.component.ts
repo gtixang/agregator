@@ -1,26 +1,25 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { ButtonComponent } from '@shared/ui';
+import { ButtonComponent, StarComponent } from '@shared/ui';
 
-import { courseFeatures } from '@shared/mappers/course.mapper';
-
-import { SchoolRatingComponent } from '@entities/school/ui/school-rating';
-import { CourseFeatureVM, CourseLine } from '../../model/course-line.model';
+import { CourseFeature, CourseLine } from '../../model';
+import { mapCourseToFeatures } from '../../mappers';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-course-line',
   standalone: true,
-  imports: [RouterLink, ButtonComponent, SchoolRatingComponent],
+  imports: [CommonModule, RouterLink, ButtonComponent, StarComponent],
   templateUrl: './course-line.component.html',
   styleUrl: './course-line.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseLineComponent {
   @Input() course!: CourseLine;
-  public courseFeatures!: CourseFeatureVM[];
+  public courseFeatures!: CourseFeature[];
 
   ngOnInit() {
-    this.courseFeatures = courseFeatures(this.course);
+    this.courseFeatures = mapCourseToFeatures(this.course);
   }
 }
