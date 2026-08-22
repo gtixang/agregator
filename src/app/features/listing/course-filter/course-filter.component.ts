@@ -13,6 +13,32 @@ import { CheckboxComponent, RangeComponent } from '@shared/ui';
 export class CourseFilterComponent {
   public fb = new FormBuilder();
 
+  private readonly defaultValues = {
+    payment: {
+      paid: false,
+      free: false,
+    },
+    price: { from: 0, to: 157800 },
+    schools: {
+      skillbox: false,
+      geekbrains: false,
+      IMBA: false,
+      loftSchool: false,
+      convertMonster: false,
+    },
+    difficultyLevel: {
+      beginner: false,
+      intermediate: false,
+      expert: false,
+      children: false,
+    },
+    durationMonths: { from: 1, to: 9 },
+    additionalOpportunities: {
+      internshipAvailable: false,
+      certificateAvailable: false,
+    },
+  };
+
   public readonly form = this.fb.group({
     payment: this.fb.group({
       paid: [false, Validators.required],
@@ -46,14 +72,12 @@ export class CourseFilterComponent {
   });
 
   ngOnInit() {
-    this.form.patchValue(
-      {
-        price: { from: 0, to: 157800 },
-        durationMonths: { from: 1, to: 9 },
-      },
-      { emitEvent: false },
-    );
+    this.form.reset(this.defaultValues);
 
     this.form.valueChanges.subscribe((res) => console.log(res));
+  }
+
+  resetForm() {
+    this.form.reset(this.defaultValues);
   }
 }

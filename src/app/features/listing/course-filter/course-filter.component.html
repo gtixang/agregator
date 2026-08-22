@@ -1,7 +1,7 @@
 <form class="filter" [formGroup]="form">
   <div class="filter__header">
     <span class="filter__title">Фильтры</span>
-    <button class="filter__reset-btn" aria-label="Сбросить фильтры">
+    <button type="button" class="filter__reset-btn" aria-label="Сбросить фильтры" (click)="resetForm()">
       <svg class="filter__reset-icon">
         <use [attr.xlink:href]="'icons/sprite.svg#refresh'"></use>
       </svg>
