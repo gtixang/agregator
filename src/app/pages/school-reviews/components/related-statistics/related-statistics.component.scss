@@ -34,9 +34,14 @@
     line-height: 15px;
     color: #8c8c8c;
   }
-
-  &__rating {
-    font-size: 22px;
-    color: #ffb800;
-  }
+}
+.rating {
+  width: 90px;
+  display: inline-flex;
+  justify-content: space-between;
+  fill: #d3def8;
+}
+.rating--sm app-star {
+  width: 14px;
+  height: 14px;
 }

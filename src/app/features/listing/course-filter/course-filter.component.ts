@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { CheckboxComponent, RangeComponent } from '@shared/ui';
+import { INITIAL_COURSES_FILTER } from '@shared/constants/course-filter.constants';
 
 @Component({
   selector: 'app-course-filter',
@@ -13,36 +14,17 @@ import { CheckboxComponent, RangeComponent } from '@shared/ui';
 export class CourseFilterComponent {
   public fb = new FormBuilder();
 
+  public initialCoursesFilter = INITIAL_COURSES_FILTER;
+
   public readonly form = this.fb.group({
-    payment: this.fb.group({
-      paid: [false, Validators.required],
-      free: [false, Validators.required],
-    }),
-
-    price: this.fb.control({ from: 0, to: 200000 }, { validators: Validators.required }),
-
-    schools: this.fb.group({
-      skillbox: [false, Validators.required],
-      geekbrains: [false, Validators.required],
-      IMBA: [false, Validators.required],
-      loftSchool: [false, Validators.required],
-      convertMonster: [false, Validators.required],
-    }),
-
-    difficultyLevel: this.fb.group({
-      beginner: [false, Validators.required],
-      intermediate: [false, Validators.required],
-      expert: [false, Validators.required],
-      children: [false, Validators.required],
-    }),
-    durationMonths: this.fb.control(
-      { from: 1, to: 12 },
-      { validators: Validators.required },
+    payment: this.fb.group(this.initialCoursesFilter.payment),
+    price: this.fb.control(this.initialCoursesFilter.price),
+    schools: this.fb.group(this.initialCoursesFilter.schools),
+    difficultyLevel: this.fb.group(this.initialCoursesFilter.difficultyLevel),
+    durationMonths: this.fb.control(this.initialCoursesFilter.durationMonths),
+    additionalOpportunities: this.fb.group(
+      this.initialCoursesFilter.additionalOpportunities,
     ),
-    additionalOpportunities: this.fb.group({
-      internshipAvailable: [false],
-      certificateAvailable: [false],
-    }),
   });
 
   ngOnInit() {
@@ -55,5 +37,9 @@ export class CourseFilterComponent {
     );
 
     this.form.valueChanges.subscribe((res) => console.log(res));
+  }
+
+  onReset() {
+    this.form.reset(this.initialCoursesFilter);
   }
 }

@@ -4,7 +4,12 @@
     <div class="related__line">
       <span class="related__name">{{ school.name }}</span>
       <span class="related__count"> {{ school.reviewsCount }} отзывов </span>
-      <span class="related__rating">{{ school.rating }} ★</span>
+
+      <div class="rating rating--sm">
+        @for (star of stars; track $index) {
+          <app-star [filled]="$index < school.rating"></app-star>
+        }
+      </div>
     </div>
   }
 </div>

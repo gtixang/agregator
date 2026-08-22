@@ -1,6 +1,13 @@
 /* eslint @typescript-eslint/no-empty-function: "off" */
 
-import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  Input,
+  ChangeDetectorRef,
+  inject,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 export type RangeValuesPosition = 'top' | 'bottom';
@@ -29,6 +36,7 @@ export class RangeComponent implements ControlValueAccessor {
   @Input({ required: true }) min!: number;
   @Input({ required: true }) max!: number;
   @Input({ required: true }) valuesPosition!: RangeValuesPosition;
+  public cdr = inject(ChangeDetectorRef);
 
   public value: RangeValue = { from: this.min, to: this.max };
 
@@ -43,6 +51,7 @@ export class RangeComponent implements ControlValueAccessor {
       return;
     }
     this.value = value;
+    this.cdr.markForCheck();
   }
 
   registerOnChange(fn: (value: RangeValue) => void): void {

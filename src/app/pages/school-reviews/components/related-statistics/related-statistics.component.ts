@@ -1,15 +1,17 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { OtherSchoolsReviewsLine } from '@entities/school';
+import { StarComponent } from '@shared/ui';
 
 @Component({
   selector: 'app-related-statistics',
-  imports: [],
+  imports: [StarComponent],
   standalone: true,
   templateUrl: './related-statistics.component.html',
   styleUrl: './related-statistics.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RelatedStatisticsComponent {
+  public stars = Array(5);
   public related: OtherSchoolsReviewsLine[] = [
     {
       name: 'SkillFactory',
