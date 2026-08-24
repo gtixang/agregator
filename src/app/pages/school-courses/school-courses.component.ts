@@ -44,7 +44,7 @@ export class SchoolCoursesComponent {
   public readonly schoolId$ = selectRouteParam('id');
 
   public readonly courses$ = this.schoolId$.pipe(
-    switchMap((id) => this.courseService.getBySchoolId$(id)),
+    switchMap((id) => this.courseService.getFilteredBySchool$(id)),
   );
 
   public readonly school$ = this.schoolId$.pipe(

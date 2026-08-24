@@ -49,7 +49,9 @@ export class OnlineCoursesComponent {
   public reload$ = new BehaviorSubject(null);
 
   ngOnInit() {
-    this.courses$ = this.reload$.pipe(switchMap(() => this.courseService.getAll$()));
+    this.courses$ = this.reload$.pipe(
+      switchMap(() => this.courseService.getFilteredCourses$()),
+    );
     this.schools$ = this.reload$.pipe(switchMap(() => this.schoolService.getAll$()));
   }
 }

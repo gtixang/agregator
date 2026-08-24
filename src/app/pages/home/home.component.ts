@@ -51,6 +51,8 @@ export class HomeComponent {
       switchMap(() => this.schoolsService.getPreviews$()),
     );
 
-    this.courses$ = this.reload$.pipe(switchMap(() => this.coursesService.getAll$()));
+    this.courses$ = this.reload$.pipe(
+      switchMap(() => this.coursesService.getFilteredCourses$()),
+    );
   }
 }

@@ -24,7 +24,7 @@
   }
 
   <div class="page-content">
-    <app-course-filter />
+    <app-course-filter [showSchoolsFilter]="false" />
 
     <div class="school-courses">
       @if (courses$ | async; as courses) {
