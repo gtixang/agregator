@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { SupabaseService } from '@shared/api';
 import { PostgrestResponse, PostgrestSingleResponse } from '@supabase/supabase-js';
-import { BehaviorSubject, Observable, switchMap } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, switchMap } from 'rxjs';
 
 import { AsyncData } from '@shared/models';
 import { toAsyncData$ } from '@shared/lib/rxjs';
@@ -10,19 +10,31 @@ import { CourseDTO } from '../dto';
 import { COURSES_SELECT, COURSES_TABLE } from '../constants';
 import { mapCourseLineDto } from '../../mappers';
 import { INITIAL_COURSES_FILTER } from '@shared/constants/course-filter.constants';
+import { CourseCategory } from '@features/listing/topics-tabs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CourseService {
   private readonly supabase = inject(SupabaseService);
-  private filtersState$ = new BehaviorSubject<CourseFilters>(INITIAL_COURSES_FILTER);
+  private readonly filtersState$ = new BehaviorSubject<CourseFilters>(
+    INITIAL_COURSES_FILTER,
+  );
+  private readonly categoryState$ = new BehaviorSubject<CourseCategory | null>(null);
+
+  public setCategory(category: CourseCategory | null): void {
+    this.categoryState$.next(category);
+  }
 
   public updateFilters(newFilters: CourseFilters): void {
     this.filtersState$.next(newFilters);
   }
 
-  private async fetchFiltered(filters: any, schoolId?: string): Promise<CourseLine[]> {
+  private async fetchFiltered(
+    filters: CourseFilters,
+    schoolId?: string,
+    category?: CourseCategory | null,
+  ): Promise<CourseLine[]> {
     let finalSelect = COURSES_SELECT;
 
     if (finalSelect.includes('prices(')) {
@@ -39,11 +51,14 @@ export class CourseService {
     // ==========================================
     // 2. ИНИЦИАЛИЗИРУЕМ ЗАПРОС К SUPABASE
     // ==========================================
-    // Создаем базовый запрос к таблице курсов с нашей настроенной структурой полей
     let query = this.supabase.getSupabase().from(COURSES_TABLE).select(finalSelect);
 
     if (schoolId) {
       query = query.eq('school_id', schoolId);
+    }
+
+    if (category) {
+      query = query.eq('direction_slug', category);
     }
 
     // Цена
@@ -74,7 +89,7 @@ export class CourseService {
     // Уровни
     if (filters.level) {
       const selectedCodes = Object.keys(filters.level).filter(
-        (key) => filters.level[key] === true,
+        (key) => filters.level[key as keyof typeof filters.level] === true,
       );
       if (selectedCodes.length > 0) {
         query = query.in('levels.code', selectedCodes);
@@ -102,8 +117,10 @@ export class CourseService {
   }
 
   public getFilteredCourses$(): Observable<AsyncData<CourseLine[]>> {
-    return this.filtersState$.pipe(
-      switchMap((filters) => toAsyncData$(() => this.fetchFiltered(filters))),
+    return combineLatest([this.filtersState$, this.categoryState$]).pipe(
+      switchMap(([filters, category]) =>
+        toAsyncData$(() => this.fetchFiltered(filters, undefined, category)),
+      ),
     );
   }
 

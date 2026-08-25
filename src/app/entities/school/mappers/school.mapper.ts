@@ -1,4 +1,4 @@
-import { SchoolBaseDTO, SchoolDTO } from '../api';
+import { SchoolBaseDTO, SchoolDTO } from '../data-access';
 import { SchoolBase, SchoolLine } from '../model';
 
 export function mapSchoolLineDto(school: SchoolDTO): SchoolLine {

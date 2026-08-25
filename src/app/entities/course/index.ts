@@ -1,5 +1,5 @@
 //Services
-export { CourseService } from './api/service';
+export { CourseService } from './data-access/service';
 
 //Ui components
 export { CourseLineComponent } from './ui';
@@ -8,8 +8,8 @@ export { CourseLineComponent } from './ui';
 export { mapCourseLineDto, mapCourseToFeatures } from './mappers';
 
 //Constants
-export * from './api/constants';
+export * from './data-access/constants';
 
 // DTOs & Models
 export type * from './model';
-export type * from './api/dto';
+export type * from './data-access/dto';

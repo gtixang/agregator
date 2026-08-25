@@ -1,4 +1,4 @@
-import { CourseDTO } from '../api/dto';
+import { CourseDTO } from '../data-access/dto';
 import { CourseFeature, CourseLine } from '../model';
 
 import { LEVEL_ICON_MAP } from '@shared/constants/level-icons.map';

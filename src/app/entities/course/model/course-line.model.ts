@@ -1,6 +1,6 @@
 import { SchoolSummary } from '@entities/school';
 
-import { Certification, Direction, CourseDTO } from '../api/dto';
+import { Certification, Direction, CourseDTO } from '../data-access/dto';
 
 export type CourseLine = Omit<
   CourseDTO,

@@ -1,16 +1,22 @@
 @use 'variables' as *;
 
-:host {
+.list {
   display: flex;
   gap: 4px;
-  justify-content: center;
-
   margin-bottom: $base-gutter * 6.6;
+  justify-content: center;
+  margin-bottom: 0;
 
   &.is-wide {
     justify-content: flex-start;
     margin: 0 -20px;
   }
+}
+.m-bt {
+  margin-bottom: 30px;
+}
+.list app-async-status {
+  display: contents;
 }
 
 .item {

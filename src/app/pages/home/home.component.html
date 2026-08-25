@@ -1,22 +1,26 @@
 <app-banner />
-<app-advantages class="bg-white" />
+<app-advantages />
 
 <app-course-directions-tabs />
 
 @if (schoolsPreviews$ | async; as schoolsPreviewsResult) {
   <app-async-status [data]="schoolsPreviewsResult">
     <ng-template let-schoolsData>
-      <app-schools-slider [schoolsData]="schoolsData" class="bg-white" />
+      <app-schools-slider [schoolsData]="schoolsData" />
     </ng-template>
   </app-async-status>
 }
 
-@if (courses$ | async; as courses) {
-  <app-async-status [data]="courses">
-    <ng-template let-courses>
-      <app-popular-courses [courses]="courses" class="bg-white" />
-    </ng-template>
-  </app-async-status>
-}
+<div>
+  <h2 class="section-title">Популярные онлайн-курсы</h2>
+  <app-topics-tabs></app-topics-tabs>
+  @if (courses$ | async; as courses) {
+    <app-async-status [data]="courses">
+      <ng-template let-courses>
+        <app-popular-courses [courses]="courses" />
+      </ng-template>
+    </app-async-status>
+  }
+</div>
 
-<app-blog-preview class="bg-white" />
+<app-blog-preview />

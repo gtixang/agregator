@@ -1,4 +1,4 @@
-import { ReviewDTO } from '../api/dto';
+import { ReviewDTO } from '../data-access/dto';
 
 export type Review = Omit<
   ReviewDTO,

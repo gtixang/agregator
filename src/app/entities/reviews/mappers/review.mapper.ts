@@ -1,4 +1,4 @@
-import { ReviewDTO } from '../api/dto';
+import { ReviewDTO } from '../data-access/dto';
 import { Review } from '../model';
 
 export function mapReviewDTOToReview(reviewDTO: ReviewDTO): Review {

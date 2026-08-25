@@ -1,4 +1,4 @@
-import { SchoolDTO } from '../api';
+import { SchoolDTO } from '../data-access';
 import { Categories } from './categories.model';
 
 export type SchoolLine = Omit<

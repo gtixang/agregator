@@ -1,8 +1,17 @@
-<li class="item">Программирование</li>
-<li class="item">Маркетинг</li>
-<li class="item">Дизайн</li>
-<li class="item is-active">Аналитика</li>
-<li class="item">Финансы</li>
-<li class="item">Управление</li>
-<li class="item">Контент-маркетинг</li>
-<li class="item">Иностранные языки</li>
+@if (categories$ | async; as categoriesData) {
+  <ul class="list m-bt">
+    <app-async-status [data]="categoriesData">
+      <ng-template let-categories>
+        @for (category of categories; track category.slug) {
+          <li
+            class="item"
+            [class.is-active]="selectedCategory === category.slug"
+            (click)="selectCategory(category.slug)"
+          >
+            {{ category.title }}
+          </li>
+        }
+      </ng-template>
+    </app-async-status>
+  </ul>
+}

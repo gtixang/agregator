@@ -33,7 +33,7 @@ export class SchoolService {
     }
 
     let schools = data.map((school) => mapSchoolLineDto(school));
-    console.log(schools);
+
     return schools;
   }
 

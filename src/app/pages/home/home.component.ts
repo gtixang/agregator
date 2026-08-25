@@ -20,6 +20,7 @@ import {
 } from './components';
 import { SchoolPreview } from '@entities/school';
 import { CourseLine, CourseService } from '@entities/course';
+import { TopicsTabsComponent } from '@features/listing';
 
 @Component({
   selector: 'app-home',
@@ -30,6 +31,7 @@ import { CourseLine, CourseService } from '@entities/course';
     CourseDirectionsTabsComponent,
     SchoolsSliderComponent,
     BlogPreviewComponent,
+    TopicsTabsComponent,
     PopularCoursesComponent,
     AsyncStatusComponent,
   ],
