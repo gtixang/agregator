@@ -43,12 +43,10 @@ Agregator — веб-приложение для поиска и выбора о
 - Angular 20;
 - TypeScript;
 - RxJS;
-- Angular Material;
 - Supabase и Supabase PostgREST;
 - SCSS;
 - ESLint;
 - Prettier;
-- Husky и lint-staged.
 
 ## Архитектура
 
