@@ -5,7 +5,6 @@
 # Agregator
 
 Agregator — веб-приложение для поиска и выбора онлайн-курсов и образовательных школ.
-Проект находится в активной разработке.
 
 Демо: [agregator-nu.vercel.app](https://agregator-nu.vercel.app/)
 
