@@ -2,7 +2,7 @@
 
 Современное веб-приложение на Angular для поиска, сравнения и выбора образовательных курсов.
 
-🔗 **Демо:** [agregator-nu.vercel.app](https://vercel.app)
+🔗 **Демо:** [agregator-nu.vercel.app](https://agregator-nu.vercel.app/)
 
 ---
 
