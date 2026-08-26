@@ -2,7 +2,7 @@
   <img src="src/assets/agregator.png" alt="Agregator" width="250">
 </p>
 
-# Agregator — веб-приложение для поиска и выбора онлайн-курсов и образовательных школ.
+## Agregator — веб-приложение для поиска и выбора онлайн-курсов и образовательных школ.
 
 🚀 Демо: [открыть приложение](https://agregator-nu.vercel.app/)
 
