@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/assets/agregator.png" alt="Agregator" width="450">
+  <img src="src/assets/agregator.png" alt="Agregator" width="150">
 </p>
 
 # Agregator
